@@ -61,7 +61,7 @@ public class DBConPool {
         dataSource = new DruidDataSource();
         dataSource.setName("mysql_pool");
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://" + "127.0.0.1" + ":" + dbport + "/" + dbName + "?useUnicode=true&characterEncoding=UTF8");
+        dataSource.setUrl("jdbc:mysql://" + dbIp + ":" + dbport + "/" + dbName + "?useUnicode=true&characterEncoding=UTF8");
         dataSource.setUsername(dbUser);
         dataSource.setPassword(dbPass);
         dataSource.setInitialSize(300);//150

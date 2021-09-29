@@ -132,12 +132,12 @@ public class MapleQuest implements Serializable {
 
         try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM wz_questdata");
-            PreparedStatement psr = con.prepareStatement("SELECT * FROM wz_questreqdata WHERE questid = ?");
-            PreparedStatement psa = con.prepareStatement("SELECT * FROM wz_questactdata WHERE questid = ?");
-            PreparedStatement pss = con.prepareStatement("SELECT * FROM wz_questactskilldata WHERE uniqueid = ?");
-            PreparedStatement psq = con.prepareStatement("SELECT * FROM wz_questactquestdata WHERE uniqueid = ?");
-            PreparedStatement psi = con.prepareStatement("SELECT * FROM wz_questactitemdata WHERE uniqueid = ?");
-            PreparedStatement psp = con.prepareStatement("SELECT * FROM wz_questpartydata WHERE questid = ?");
+            PreparedStatement psr = con.prepareStatement("SELECT * FROM wz_questreqdata WHERE questid = ? ");
+            PreparedStatement psa = con.prepareStatement("SELECT * FROM wz_questactdata WHERE questid = ? ");
+            PreparedStatement pss = con.prepareStatement("SELECT * FROM wz_questactskilldata WHERE uniqueid = ? ");
+            PreparedStatement psq = con.prepareStatement("SELECT * FROM wz_questactquestdata WHERE uniqueid = ? ");
+            PreparedStatement psi = con.prepareStatement("SELECT * FROM wz_questactitemdata WHERE uniqueid = ? ");
+            PreparedStatement psp = con.prepareStatement("SELECT * FROM wz_questpartydata WHERE questid = ? ");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 quests.put(rs.getInt("questid"), loadQuest(rs, psr, psa, pss, psq, psi, psp));

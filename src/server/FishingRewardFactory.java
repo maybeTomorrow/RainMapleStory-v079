@@ -97,7 +97,7 @@ public class FishingRewardFactory {
         rewards.clear();
         Long acc = 0L;
         try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
-            try (PreparedStatement ps = con.prepareStatement("SELECT * FROM 钓鱼物品 ORDER BY chance ASC"); ResultSet rs = ps.executeQuery()) {
+            try (PreparedStatement ps = con.prepareStatement("SELECT * FROM fishing_rewards ORDER BY chance ASC"); ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     int itemid = rs.getInt("itemid");
                     int chance = rs.getInt("chance");

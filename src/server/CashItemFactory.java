@@ -50,8 +50,10 @@ public class CashItemFactory {
 
         System.out.println("【讀取中】 購物商城物品 :::");
 
+
         final List<Integer> itemids = new ArrayList<>();
         for (MapleData field : data.getData("Commodity.img").getChildren()) {
+
             final int itemId = MapleDataTool.getIntConvert("ItemId", field, 0);
             final int SN = MapleDataTool.getIntConvert("SN", field, 0);
 
@@ -150,6 +152,7 @@ public class CashItemFactory {
                     ResultSet rs = ps.executeQuery();
                     if (rs.next()) {
                         ret = new CashModInfo(sn, rs.getInt("discount_price"), rs.getInt("mark"), rs.getInt("showup") > 0, rs.getInt("itemid"), rs.getInt("priority"), rs.getInt("package") > 0, rs.getInt("period"), rs.getInt("gender"), rs.getInt("count"), rs.getInt("meso"), rs.getInt("unk_1"), rs.getInt("unk_2"), rs.getInt("unk_3"), rs.getInt("extra_flags"), rs.getInt("mod"));
+
                         itemMods.put(sn, ret);
 
                     }

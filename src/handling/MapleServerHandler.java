@@ -194,9 +194,15 @@ public class MapleServerHandler extends ChannelInboundHandlerAdapter {
         }
 
         // IV used to decrypt packets from client.
-        final byte ivRecv[] = new byte[]{(byte) Randomizer.nextInt(255), (byte) Randomizer.nextInt(255), (byte) Randomizer.nextInt(255), (byte) Randomizer.nextInt(255)};
-        // IV used to encrypt packets for client.
-        final byte ivSend[] = new byte[]{(byte) Randomizer.nextInt(255), (byte) Randomizer.nextInt(255), (byte) Randomizer.nextInt(255), (byte) Randomizer.nextInt(255)};
+//        final byte ivRecv[] = new byte[]{(byte) Randomizer.nextInt(255), (byte) Randomizer.nextInt(255), (byte) Randomizer.nextInt(255), (byte) Randomizer.nextInt(255)};
+////        // IV used to encrypt packets for client.
+//        final byte ivSend[] = new byte[]{(byte) Randomizer.nextInt(255), (byte) Randomizer.nextInt(255), (byte) Randomizer.nextInt(255), (byte) Randomizer.nextInt(255)};
+
+        byte ivRecv[] = {70, 114, 122, 82};
+        byte ivSend[] = {82, 48, 120, 115};
+
+//        ivRecv[3] = (byte) (Math.random() * 255);
+//        ivSend[3] = (byte) (Math.random() * 255);
 
         final MapleClient client = new MapleClient(
                 new MapleAESOFB(ivSend, (short) (0xFFFF - ServerConstants.MAPLE_VERSION)), // Sent Cypher
@@ -204,6 +210,8 @@ public class MapleServerHandler extends ChannelInboundHandlerAdapter {
                 ctx.channel());
 
         client.setChannel(channel);
+
+
 
         MaplePacketDecoder.DecoderState decoderState = new MaplePacketDecoder.DecoderState();
         ctx.channel().attr(MaplePacketDecoder.DECODER_STATE_KEY).set(decoderState);
@@ -565,6 +573,9 @@ public class MapleServerHandler extends ChannelInboundHandlerAdapter {
                 break;
             case CLOSE_CHALKBOARD:
                 c.getPlayer().setChalkboard(null);
+                break;
+            case PLAYER_UPDATE:
+                c.getPlayer().saveToDB(false,false);
                 break;
             case ITEM_MAKER:
                 ItemMakerHandler.ItemMaker(slea, c);

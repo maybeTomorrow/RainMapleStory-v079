@@ -39,7 +39,7 @@ import tools.data.ByteArrayByteStream;
 import tools.data.LittleEndianAccessor;
 
 public class MaplePacketDecoder extends ByteToMessageDecoder {
-
+    private static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(MaplePacketDecoder.class);
     public static class DecoderState {
 
         public int packetlength = -1;
@@ -52,6 +52,7 @@ public class MaplePacketDecoder extends ByteToMessageDecoder {
         final MapleClient client = (MapleClient) chc.channel().attr(MapleClient.CLIENT_KEY).get();
         final DecoderState decoderState = (DecoderState) chc.channel().attr(DECODER_STATE_KEY).get();
 
+
         if (in.readableBytes() >= 4 && decoderState.packetlength == -1) {
             int packetHeader = in.readInt();
             if (!client.getReceiveCrypto().checkPacket(packetHeader)) {
@@ -63,12 +64,17 @@ public class MaplePacketDecoder extends ByteToMessageDecoder {
         } else if (in.readableBytes() < 4 && decoderState.packetlength == -1) {
             return;
         }
+
         if (in.readableBytes() >= decoderState.packetlength) {
             byte decryptedPacket[] = new byte[decoderState.packetlength];
             in.readBytes(decryptedPacket);
             decoderState.packetlength = -1;
+
+            log.info(HexTool.toString(decryptedPacket));
             client.getReceiveCrypto().crypt(decryptedPacket);
+            HexTool.toString(decryptedPacket);
             MapleCustomEncryption.decryptData(decryptedPacket);
+            HexTool.toString(decryptedPacket);
             message.add(decryptedPacket);
 
             //封包輸出
@@ -76,7 +82,8 @@ public class MaplePacketDecoder extends ByteToMessageDecoder {
             short pHeader = new LittleEndianAccessor(new ByteArrayByteStream(decryptedPacket)).readShort();
             String op = RecvPacketOpcode.nameOf(pHeader);
             //boolean ChrdangerousIp = client.dangerousIp(client.getSession().remoteAddress().toString());
-            if ((ServerConfig.LOG_PACKETS || ServerConfig.CHRLOG_PACKETS /*|| dangerousIp*/) && !RecvPacketOpcode.isSpamHeader(RecvPacketOpcode.valueOf(op))) {
+            //
+            if ((ServerConfig.LOG_PACKETS || ServerConfig.CHRLOG_PACKETS && !RecvPacketOpcode.isSpamHeader(RecvPacketOpcode.valueOf(op))/*|| dangerousIp*/) ) {
                 String tab = "";
                 for (int i = 4; i > op.length() / 8; i--) {
                     tab += "\t";

@@ -28,7 +28,7 @@ public enum RecvPacketOpcode implements WritableIntValueHolder {
     SET_GENDER(0x19),
     CLIENT_LOGOUT(0x1A),
     // CHANNEL
-
+    PLAYER_UPDATE,
     CHANGE_MAP(0x1E),
     CHANGE_CHANNEL(0x1F),
     ENTER_CASH_SHOP(0x20),
@@ -224,15 +224,17 @@ public enum RecvPacketOpcode implements WritableIntValueHolder {
         switch (header.name()) {
             case "PONG":
             case "NPC_ACTION":
+            case "MOVE_MONSTER_RESPONSE":
+            case "MOVE_LIFE":
 //            case "ENTER"":
 //            case "CRASH_INFO":
 //            case "AUTH_REQUEST":
 //            case "SPECIAL_MOVE":
 //            case "MOVE_LIFE":
-//            case "MOVE_PLAYER":
+            case "MOVE_PLAYER":
 //            case "MOVE_ANDROID":
 //            case "MOVE_DRAGON":
-//            case "MOVE_SUMMON":
+            case "MOVE_SUMMON":
 //            case "MOVE_FAMILIAR":
 //            case "MOVE_PET":
 //            case "AUTO_AGGRO":
@@ -253,6 +255,7 @@ public enum RecvPacketOpcode implements WritableIntValueHolder {
 //            case "DRESSUP_TIME":
 //            case "BUTTON_PRESSED":
 //            case "STRANGE_DATA":
+//            case "SYSTEM_PROCESS_LIST":
 //            case "SYSTEM_PROCESS_LIST":
 //            case "PINKBEAN_YOYO_REQUEST":
                 return true;

@@ -1676,14 +1676,14 @@ public class World {
                         id = rs.getInt("id");
                         if (rs.getTimestamp("lastlogin").getTime() + 21600000 > System.currentTimeMillis()) {
                             Statement stmt = con.createStatement();
-                            ResultSet rss = stmt.executeQuery("Select Acash, mPoints from Accounts Where id = " + id);
+                            ResultSet rss = stmt.executeQuery("Select Acash, mPoints from accounts Where id = " + id);
                             while (rss.next()) {
                                 Acash = rss.getInt("Acash");
                                 mPoints = rss.getInt("mPoints");
                             }
                             rss.close();
                             PreparedStatement pss;
-                            pss = con.prepareStatement("Update Accounts set Acash = ?, mPoints = ? Where id = ?");
+                            pss = con.prepareStatement("Update accounts set Acash = ?, mPoints = ? Where id = ?");
                             pss.setInt(1, Acash + Randomizer.rand(1, 5));
                             pss.setInt(2, mPoints + Randomizer.rand(1, 5));
                             pss.setInt(3, id);

@@ -1114,7 +1114,7 @@ public class MapleClient {
     public void setVip(int x) {
         try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
             PreparedStatement ps;
-            ps = con.prepareStatement("Update Accounts set vip = ? Where id = ?");
+            ps = con.prepareStatement("Update accounts set vip = ? Where id = ?");
             ps.setInt(1, x);
             ps.setInt(2, getAccID());
             ps.execute();

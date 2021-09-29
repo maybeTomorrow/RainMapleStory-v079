@@ -41,6 +41,13 @@ public class XMLWZFile implements MapleDataProvider {
     }
 
     private void fillMapleDataEntitys(File lroot, WZDirectoryEntry wzdir) {
+        if (lroot==null){
+            System.out.println("en");
+            return;
+        }else if(lroot.listFiles()==null){
+            System.out.println(lroot.getName()+" is empty");
+            return;
+        }
         for (File file : lroot.listFiles()) {
             String fileName = file.getName();
 

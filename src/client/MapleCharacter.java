@@ -7531,7 +7531,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
             nowtime++;
             try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("Select Acash from Accounts Where id = " + chr.getClient().getAccID());
+                ResultSet rs = stmt.executeQuery("Select Acash from accounts Where id = " + chr.getClient().getAccID());
                 while (rs.next()) {
                     int debug = -1;
                     try {
@@ -7568,7 +7568,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
     public void setAcash(int x) {
         try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
             PreparedStatement ps;
-            ps = con.prepareStatement("Update Accounts set Acash = ? Where id = ?");
+            ps = con.prepareStatement("Update accounts set Acash = ? Where id = ?");
             ps.setInt(1, x);
             ps.setInt(2, getClient().getAccID());
             ps.execute();
@@ -7597,7 +7597,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
             nowtime++;
             try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("Select CZJF from Accounts Where id = " + chr.getClient().getAccID());
+                ResultSet rs = stmt.executeQuery("Select CZJF from accounts Where id = " + chr.getClient().getAccID());
                 while (rs.next()) {
                     int debug = -1;
                     try {
@@ -7634,7 +7634,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
     public void setCZJF(int x) {
         try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
             PreparedStatement ps;
-            ps = con.prepareStatement("Update Accounts set CZJF = ? Where id = ?");
+            ps = con.prepareStatement("Update accounts set CZJF = ? Where id = ?");
             ps.setInt(1, x);
             ps.setInt(2, getClient().getAccID());
             ps.execute();
@@ -7663,7 +7663,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
             nowtime++;
             try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("Select TGJF from Accounts Where id = " + chr.getClient().getAccID());
+                ResultSet rs = stmt.executeQuery("Select TGJF from accounts Where id = " + chr.getClient().getAccID());
                 while (rs.next()) {
                     int debug = -1;
                     try {
@@ -7700,7 +7700,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
     public void setTGJF(int x) {
         try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
             PreparedStatement ps;
-            ps = con.prepareStatement("Update Accounts set TGJF = ? Where id = ?");
+            ps = con.prepareStatement("Update accounts set TGJF = ? Where id = ?");
             ps.setInt(1, x);
             ps.setInt(2, getClient().getAccID());
             ps.execute();
@@ -7729,7 +7729,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
             nowtime++;
             try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("Select TJJF from Accounts Where id = " + chr.getClient().getAccID());
+                ResultSet rs = stmt.executeQuery("Select TJJF from accounts Where id = " + chr.getClient().getAccID());
                 while (rs.next()) {
                     int debug = -1;
                     try {
@@ -7766,7 +7766,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
     public void setTJJF(int x) {
         try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
             PreparedStatement ps;
-            ps = con.prepareStatement("Update Accounts set TJJF = ? Where id = ?");
+            ps = con.prepareStatement("Update accounts set TJJF = ? Where id = ?");
             ps.setInt(1, x);
             ps.setInt(2, getClient().getAccID());
             ps.execute();
@@ -8116,7 +8116,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
                 StringBuilder sql = new StringBuilder();
                 MapleCharacter chr = iter.next();
                 int MP = GiveList.get(chr);
-                sql.append("Update Accounts set MP = ");
+                sql.append("Update accounts set MP = ");
                 sql.append(chr.getMP() + MP);
                 sql.append(" Where id = ");
                 sql.append(chr.getAccountID());
@@ -8143,7 +8143,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
     public void setMP(int x) {
         try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
             PreparedStatement ps;
-            ps = con.prepareStatement("Update Accounts set MP = ? Where id = ?");
+            ps = con.prepareStatement("Update accounts set MP = ? Where id = ?");
             ps.setInt(1, x);
             ps.setInt(2, getClient().getAccID());
             ps.execute();
@@ -8169,7 +8169,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
 
             try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("Select MP from Accounts Where id = " + getClient().getAccID());
+                ResultSet rs = stmt.executeQuery("Select MP from accounts Where id = " + getClient().getAccID());
                 while (rs.next()) {
                     int debug = -1;
                     try {
@@ -8699,7 +8699,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
             nowtime++;
             try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("Select DDJF from Accounts Where id = " + chr.getClient().getAccID());
+                ResultSet rs = stmt.executeQuery("Select DDJF from accounts Where id = " + chr.getClient().getAccID());
                 while (rs.next()) {
                     int debug = -1;
                     try {
@@ -8736,7 +8736,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
     public void setDDJF(int x) {
         try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
             PreparedStatement ps;
-            ps = con.prepareStatement("Update Accounts set DDJF = ? Where id = ?");
+            ps = con.prepareStatement("Update accounts set DDJF = ? Where id = ?");
             ps.setInt(1, x);
             ps.setInt(2, getClient().getAccID());
             ps.execute();
@@ -9206,7 +9206,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
             nowtime++;
             try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("Select points from Accounts Where id = " + chr.getClient().getAccID());
+                ResultSet rs = stmt.executeQuery("Select points from accounts Where id = " + chr.getClient().getAccID());
                 while (rs.next()) {
                     int debug = -1;
                     try {
@@ -9242,7 +9242,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
     public void setPoints(int x) {
         try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
             PreparedStatement ps;
-            ps = con.prepareStatement("Update Accounts set points = ? Where id = ?");
+            ps = con.prepareStatement("Update accounts set points = ? Where id = ?");
             ps.setInt(1, x);
             ps.setInt(2, getClient().getAccID());
             ps.execute();
