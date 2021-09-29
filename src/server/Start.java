@@ -216,7 +216,10 @@ public class Start {
 
     public static void main(final String args[]) throws InterruptedException {
         String[] macs = {
-            "6d54e5dc940444564b3f595eea25561ae075183d","14817cde37fc65ad4138cc8a79f46a4d0d0961d3"};
+            "6d54e5dc940444564b3f595eea25561ae075183d",
+                "14817cde37fc65ad4138cc8a79f46a4d0d0961d3",
+                "fc6c4763f22ada6bc26c1bc8d1ccce132235f314"};
+
         String mac = MacAddressTool.getMacAddress(false);
         String num = returnSerialNumber();
         String localMac = LoginCrypto.hexSha1(num + mac);

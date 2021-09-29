@@ -176,6 +176,13 @@ public class CashItemFactory {
             while (rs.next()) {
                 Integer sn = rs.getInt("serial");
                 CashModInfo ret = new CashModInfo(sn, rs.getInt("discount_price"), rs.getInt("mark"), rs.getInt("showup") > 0, rs.getInt("itemid"), rs.getInt("priority"), rs.getInt("package") > 0, rs.getInt("period"), rs.getInt("gender"), rs.getInt("count"), rs.getInt("meso"), rs.getInt("unk_1"), rs.getInt("unk_2"), rs.getInt("unk_3"), rs.getInt("extra_flags"), rs.getInt("mod"));
+                if(ret.itemid<=0){
+                    continue;
+                }
+//                if (MapleItemInformationProvider.getInstance().getItemData(ret.itemid)==null) {
+//                    continue;
+//                }
+
                 itemMods.put(sn, ret);
                 itemIdToSn.put(ret.itemid, sn);
             }

@@ -65,11 +65,8 @@ import java.util.Random;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-import server.MapleItemInformationProvider;
-import server.MaplePortal;
-import server.MapleStatEffect;
-import server.Randomizer;
-import server.MapleInventoryManipulator;
+
+import server.*;
 import server.life.MapleMonster;
 import server.life.MapleNPC;
 import server.life.MapleLifeFactory;
@@ -84,11 +81,8 @@ import tools.MaplePacketCreator;
 import tools.packet.PetPacket;
 import tools.packet.MobPacket;
 import scripting.EventManager;
-import server.MapleCarnivalFactory;
 import server.MapleCarnivalFactory.MCSkill;
-import server.MapleSquad;
 import server.MapleSquad.MapleSquadType;
-import server.SpeedRunner;
 import server.Timer.MapTimer;
 import server.events.MapleEvent;
 import server.maps.MapleNodes.MapleNodeInfo;
@@ -488,7 +482,7 @@ public final class MapleMap {
         }
         return ret;
     }
-
+//杀怪
     private void dropFromMonster(final MapleCharacter chr, final MapleMonster mob) {
         if (mob == null || chr == null || ChannelServer.getInstance(channel) == null || dropsDisabled || mob.dropsDisabled() || chr.getPyramidSubway() != null) { //no drops in pyramid ok? no cash either
             return;
@@ -582,6 +576,7 @@ public final class MapleMap {
         int mesos = Randomizer.nextInt(mob.getLevel()) + mob.getLevel();
         if (mesos > 0) {
             double lastMeso = chr.getStat().realMesoBuff - 100.0 <= 0 ? 100 : chr.getStat().realMesoBuff - 100;
+            lastMeso = ServerProperties.getProperty("server.settings.mesoRate",1) * lastMeso;
             spawnMobMesoDrop((int) (mesos * (lastMeso / 100.0) * ((chr.getVipExpRate() / 100) + 1.0D) * chr.getDropMod() * chr.getDropm() * cmServerrate), calcDropPos(pos, mob.getTruePosition()), mob, chr, false, droptype);
         }
         final List<MonsterGlobalDropEntry> globalEntry = new ArrayList<>(mi.getGlobalDrop());

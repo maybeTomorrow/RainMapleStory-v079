@@ -27,6 +27,37 @@ CREATE TABLE `cheatlog` (
   KEY `cid` (`characterid`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+
+-- ----------------------------
+--  Table structure for `csitems`
+-- ----------------------------
+DROP TABLE IF EXISTS `csitems`;
+CREATE TABLE `csitems` (
+  `inventoryitemid` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `characterid` int(11) DEFAULT NULL,
+  `accountid` int(10) DEFAULT NULL,
+  `packageid` int(11) DEFAULT NULL,
+  `itemid` int(11) NOT NULL DEFAULT '0',
+  `inventorytype` int(11) NOT NULL DEFAULT '0',
+  `position` int(11) NOT NULL DEFAULT '0',
+  `quantity` int(11) NOT NULL DEFAULT '0',
+  `owner` tinytext,
+  `GM_Log` tinytext,
+  `uniqueid` int(11) NOT NULL DEFAULT '-1',
+  `flag` int(2) NOT NULL DEFAULT '0',
+  `expiredate` bigint(20) NOT NULL DEFAULT '-1',
+  `type` tinyint(1) NOT NULL DEFAULT '0',
+  `sender` varchar(13) NOT NULL DEFAULT '',
+  `equipOnlyId` int(11) NOT NULL DEFAULT '-1',
+  PRIMARY KEY (`inventoryitemid`),
+  KEY `inventoryitems_ibfk_1` (`characterid`),
+  KEY `characterid` (`characterid`),
+  KEY `inventorytype` (`inventorytype`),
+  KEY `accountid` (`accountid`),
+  KEY `packageid` (`packageid`),
+  KEY `characterid_2` (`characterid`,`inventorytype`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- ----------------------------
 --  Table structure for `csequipment`
 -- ----------------------------
@@ -63,36 +94,6 @@ CREATE TABLE `csequipment` (
   PRIMARY KEY (`inventoryequipmentid`),
   KEY `inventoryitemid` (`inventoryitemid`),
   CONSTRAINT `csequipment_ibfk_1` FOREIGN KEY (`inventoryitemid`) REFERENCES `csitems` (`inventoryitemid`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
---  Table structure for `csitems`
--- ----------------------------
-DROP TABLE IF EXISTS `csitems`;
-CREATE TABLE `csitems` (
-  `inventoryitemid` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `characterid` int(11) DEFAULT NULL,
-  `accountid` int(10) DEFAULT NULL,
-  `packageid` int(11) DEFAULT NULL,
-  `itemid` int(11) NOT NULL DEFAULT '0',
-  `inventorytype` int(11) NOT NULL DEFAULT '0',
-  `position` int(11) NOT NULL DEFAULT '0',
-  `quantity` int(11) NOT NULL DEFAULT '0',
-  `owner` tinytext,
-  `GM_Log` tinytext,
-  `uniqueid` int(11) NOT NULL DEFAULT '-1',
-  `flag` int(2) NOT NULL DEFAULT '0',
-  `expiredate` bigint(20) NOT NULL DEFAULT '-1',
-  `type` tinyint(1) NOT NULL DEFAULT '0',
-  `sender` varchar(13) NOT NULL DEFAULT '',
-  `equipOnlyId` int(11) NOT NULL DEFAULT '-1',
-  PRIMARY KEY (`inventoryitemid`),
-  KEY `inventoryitems_ibfk_1` (`characterid`),
-  KEY `characterid` (`characterid`),
-  KEY `inventorytype` (`inventorytype`),
-  KEY `accountid` (`accountid`),
-  KEY `packageid` (`packageid`),
-  KEY `characterid_2` (`characterid`,`inventorytype`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -157,6 +158,37 @@ CREATE TABLE `drop_data_vana` (
 ) ENGINE=MyISAM AUTO_INCREMENT=10087 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+--  Table structure for `dueyitems`
+-- ----------------------------
+DROP TABLE IF EXISTS `dueyitems`;
+CREATE TABLE `dueyitems` (
+  `inventoryitemid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `characterid` int(11) DEFAULT NULL,
+  `accountid` int(10) DEFAULT NULL,
+  `packageid` int(11) DEFAULT NULL,
+  `itemid` int(11) NOT NULL DEFAULT '0',
+  `inventorytype` int(11) NOT NULL DEFAULT '0',
+  `position` int(11) NOT NULL DEFAULT '0',
+  `quantity` int(11) NOT NULL DEFAULT '0',
+  `owner` tinytext,
+  `GM_Log` tinytext,
+  `uniqueid` int(11) NOT NULL DEFAULT '-1',
+  `flag` int(2) NOT NULL DEFAULT '0',
+  `expiredate` bigint(20) NOT NULL DEFAULT '-1',
+  `type` tinyint(1) NOT NULL DEFAULT '0',
+  `sender` varchar(15) NOT NULL DEFAULT '',
+  `equipOnlyId` int(11) NOT NULL DEFAULT '-1',
+  PRIMARY KEY (`inventoryitemid`),
+  KEY `inventoryitems_ibfk_1` (`characterid`),
+  KEY `characterid` (`characterid`),
+  KEY `inventorytype` (`inventorytype`),
+  KEY `accountid` (`accountid`),
+  KEY `packageid` (`packageid`),
+  KEY `characterid_2` (`characterid`,`inventorytype`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- ----------------------------
 --  Table structure for `dueyequipment`
 -- ----------------------------
 DROP TABLE IF EXISTS `dueyequipment`;
@@ -195,36 +227,6 @@ CREATE TABLE `dueyequipment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
---  Table structure for `dueyitems`
--- ----------------------------
-DROP TABLE IF EXISTS `dueyitems`;
-CREATE TABLE `dueyitems` (
-  `inventoryitemid` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `characterid` int(11) DEFAULT NULL,
-  `accountid` int(10) DEFAULT NULL,
-  `packageid` int(11) DEFAULT NULL,
-  `itemid` int(11) NOT NULL DEFAULT '0',
-  `inventorytype` int(11) NOT NULL DEFAULT '0',
-  `position` int(11) NOT NULL DEFAULT '0',
-  `quantity` int(11) NOT NULL DEFAULT '0',
-  `owner` tinytext,
-  `GM_Log` tinytext,
-  `uniqueid` int(11) NOT NULL DEFAULT '-1',
-  `flag` int(2) NOT NULL DEFAULT '0',
-  `expiredate` bigint(20) NOT NULL DEFAULT '-1',
-  `type` tinyint(1) NOT NULL DEFAULT '0',
-  `sender` varchar(15) NOT NULL DEFAULT '',
-  `equipOnlyId` int(11) NOT NULL DEFAULT '-1',
-  PRIMARY KEY (`inventoryitemid`),
-  KEY `inventoryitems_ibfk_1` (`characterid`),
-  KEY `characterid` (`characterid`),
-  KEY `inventorytype` (`inventorytype`),
-  KEY `accountid` (`accountid`),
-  KEY `packageid` (`packageid`),
-  KEY `characterid_2` (`characterid`,`inventorytype`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
 --  Table structure for `dueypackages`
 -- ----------------------------
 DROP TABLE IF EXISTS `dueypackages`;
@@ -253,19 +255,6 @@ CREATE TABLE `eventstats` (
   PRIMARY KEY (`eventstatid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
---  Table structure for `famelog`
--- ----------------------------
-DROP TABLE IF EXISTS `famelog`;
-CREATE TABLE `famelog` (
-  `famelogid` int(11) NOT NULL AUTO_INCREMENT,
-  `characterid` int(11) NOT NULL DEFAULT '0',
-  `characterid_to` int(11) NOT NULL DEFAULT '0',
-  `when` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`famelogid`),
-  KEY `characterid` (`characterid`),
-  CONSTRAINT `famelog_ibfk_1` FOREIGN KEY (`characterid`) REFERENCES `characters` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 --  Table structure for `families`
@@ -276,6 +265,19 @@ CREATE TABLE `families` (
   `leaderid` int(11) NOT NULL DEFAULT '0',
   `notice` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`familyid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+--  Table structure for `famelog`
+-- ----------------------------
+DROP TABLE IF EXISTS `famelog`;
+CREATE TABLE `famelog` (
+  `famelogid` int(11) NOT NULL AUTO_INCREMENT,
+  `characterid` int(11) NOT NULL DEFAULT '0',
+  `characterid_to` int(11) NOT NULL DEFAULT '0',
+  `when` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`famelogid`),
+  KEY `characterid` (`characterid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -388,6 +390,37 @@ CREATE TABLE `hiredmerch` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+--  Table structure for `hiredmerchitems`
+-- ----------------------------
+DROP TABLE IF EXISTS `hiredmerchitems`;
+CREATE TABLE `hiredmerchitems` (
+  `inventoryitemid` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `characterid` int(11) DEFAULT NULL,
+  `accountid` int(10) DEFAULT NULL,
+  `packageid` int(11) DEFAULT NULL,
+  `itemid` int(11) NOT NULL DEFAULT '0',
+  `inventorytype` int(11) NOT NULL DEFAULT '0',
+  `position` int(11) NOT NULL DEFAULT '0',
+  `quantity` int(11) NOT NULL DEFAULT '0',
+  `owner` tinytext,
+  `GM_Log` tinytext,
+  `uniqueid` int(11) NOT NULL DEFAULT '-1',
+  `flag` int(2) NOT NULL DEFAULT '0',
+  `expiredate` bigint(20) NOT NULL DEFAULT '-1',
+  `type` tinyint(1) NOT NULL DEFAULT '0',
+  `sender` varchar(15) NOT NULL DEFAULT '',
+  `equipOnlyId` int(11) NOT NULL DEFAULT '-1',
+  PRIMARY KEY (`inventoryitemid`),
+  KEY `inventoryitems_ibfk_1` (`characterid`),
+  KEY `characterid` (`characterid`),
+  KEY `inventorytype` (`inventorytype`),
+  KEY `accountid` (`accountid`),
+  KEY `packageid` (`packageid`),
+  KEY `characterid_2` (`characterid`,`inventorytype`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- ----------------------------
 --  Table structure for `hiredmerchequipment`
 -- ----------------------------
 DROP TABLE IF EXISTS `hiredmerchequipment`;
@@ -426,10 +459,23 @@ CREATE TABLE `hiredmerchequipment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
---  Table structure for `hiredmerchitems`
+--  Table structure for `htsquads`
 -- ----------------------------
-DROP TABLE IF EXISTS `hiredmerchitems`;
-CREATE TABLE `hiredmerchitems` (
+DROP TABLE IF EXISTS `htsquads`;
+CREATE TABLE `htsquads` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `channel` int(10) unsigned NOT NULL,
+  `leaderid` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` int(10) unsigned NOT NULL DEFAULT '0',
+  `members` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `inventoryitems`
+-- ----------------------------
+DROP TABLE IF EXISTS `inventoryitems`;
+CREATE TABLE `inventoryitems` (
   `inventoryitemid` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `characterid` int(11) DEFAULT NULL,
   `accountid` int(10) DEFAULT NULL,
@@ -447,26 +493,12 @@ CREATE TABLE `hiredmerchitems` (
   `sender` varchar(15) NOT NULL DEFAULT '',
   `equipOnlyId` int(11) NOT NULL DEFAULT '-1',
   PRIMARY KEY (`inventoryitemid`),
-  KEY `inventoryitems_ibfk_1` (`characterid`),
-  KEY `characterid` (`characterid`),
   KEY `inventorytype` (`inventorytype`),
   KEY `accountid` (`accountid`),
   KEY `packageid` (`packageid`),
   KEY `characterid_2` (`characterid`,`inventorytype`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
---  Table structure for `htsquads`
--- ----------------------------
-DROP TABLE IF EXISTS `htsquads`;
-CREATE TABLE `htsquads` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `channel` int(10) unsigned NOT NULL,
-  `leaderid` int(10) unsigned NOT NULL DEFAULT '0',
-  `status` int(10) unsigned NOT NULL DEFAULT '0',
-  `members` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `inventoryequipment`
@@ -504,34 +536,6 @@ CREATE TABLE `inventoryequipment` (
   PRIMARY KEY (`inventoryequipmentid`),
   KEY `inventoryitemid` (`inventoryitemid`),
   CONSTRAINT `inventoryequipment_ibfk_1` FOREIGN KEY (`inventoryitemid`) REFERENCES `inventoryitems` (`inventoryitemid`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
---  Table structure for `inventoryitems`
--- ----------------------------
-DROP TABLE IF EXISTS `inventoryitems`;
-CREATE TABLE `inventoryitems` (
-  `inventoryitemid` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `characterid` int(11) DEFAULT NULL,
-  `accountid` int(10) DEFAULT NULL,
-  `packageid` int(11) DEFAULT NULL,
-  `itemid` int(11) NOT NULL DEFAULT '0',
-  `inventorytype` int(11) NOT NULL DEFAULT '0',
-  `position` int(11) NOT NULL DEFAULT '0',
-  `quantity` int(11) NOT NULL DEFAULT '0',
-  `owner` tinytext,
-  `GM_Log` tinytext,
-  `uniqueid` int(11) NOT NULL DEFAULT '-1',
-  `flag` int(2) NOT NULL DEFAULT '0',
-  `expiredate` bigint(20) NOT NULL DEFAULT '-1',
-  `type` tinyint(1) NOT NULL DEFAULT '0',
-  `sender` varchar(15) NOT NULL DEFAULT '',
-  `equipOnlyId` int(11) NOT NULL DEFAULT '-1',
-  PRIMARY KEY (`inventoryitemid`),
-  KEY `inventorytype` (`inventorytype`),
-  KEY `accountid` (`accountid`),
-  KEY `packageid` (`packageid`),
-  KEY `characterid_2` (`characterid`,`inventorytype`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

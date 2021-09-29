@@ -70,7 +70,6 @@ public class MaplePacketDecoder extends ByteToMessageDecoder {
             in.readBytes(decryptedPacket);
             decoderState.packetlength = -1;
 
-            log.info(HexTool.toString(decryptedPacket));
             client.getReceiveCrypto().crypt(decryptedPacket);
             HexTool.toString(decryptedPacket);
             MapleCustomEncryption.decryptData(decryptedPacket);

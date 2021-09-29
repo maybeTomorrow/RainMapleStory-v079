@@ -177,6 +177,13 @@ public class ServerProperties {
         }
         return def;
     }
+    public static double getProperty(String s, double def) {
+        String property = props.getProperty(s);
+        if (property != null) {
+            return Double.parseDouble(property);
+        }
+        return def;
+    }
 
     static {
         loadProperties();

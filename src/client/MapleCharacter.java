@@ -86,19 +86,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+import server.*;
 import tools.MockIOSession;
 import scripting.EventInstanceManager;
 import scripting.EventManager;
 import scripting.NPCScriptManager;
-import server.AutobanManager;
-import server.MaplePortal;
-import server.MapleShop;
-import server.MapleStatEffect;
-import server.MapleStorage;
-import server.MapleTrade;
-import server.Randomizer;
-import server.MapleCarnivalParty;
-import server.MapleItemInformationProvider;
 import server.life.MapleMonster;
 import server.maps.AbstractAnimatedMapleMapObject;
 import server.maps.MapleDoor;
@@ -111,8 +104,6 @@ import server.maps.FieldLimitType;
 import server.maps.SavedLocationType;
 import server.quest.MapleQuest;
 import server.shops.IMaplePlayerShop;
-import server.CashShop;
-import server.FishingRewardFactory;
 import server.FishingRewardFactory.FishingReward;
 import tools.MaplePacketCreator;
 import tools.Pair;
@@ -121,9 +112,6 @@ import tools.packet.MobPacket;
 import tools.packet.PetPacket;
 import tools.packet.MonsterCarnivalPacket;
 import tools.packet.UIPacket;
-import server.MapleCarnivalChallenge;
-import server.MapleInventoryManipulator;
-import server.Timer;
 import server.Timer.BuffTimer;
 import server.Timer.EtcTimer;
 import server.Timer.MapTimer;
@@ -3180,6 +3168,9 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
         if (getExpm() > 1.0D) {
             gain = (int) (gain * getExpm());
         }
+
+        gain =  gain * ServerProperties.getProperty("server.settings.expRate",1);
+
         if (isVip()) {
             gain = (int) (gain * (1.0D + (getVipExpRate() / 100D)));
         }
