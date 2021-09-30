@@ -576,7 +576,7 @@ public final class MapleMap {
         int mesos = Randomizer.nextInt(mob.getLevel()) + mob.getLevel();
         if (mesos > 0) {
             double lastMeso = chr.getStat().realMesoBuff - 100.0 <= 0 ? 100 : chr.getStat().realMesoBuff - 100;
-            lastMeso = ServerProperties.getProperty("server.settings.mesoRate",1) * lastMeso;
+
             spawnMobMesoDrop((int) (mesos * (lastMeso / 100.0) * ((chr.getVipExpRate() / 100) + 1.0D) * chr.getDropMod() * chr.getDropm() * cmServerrate), calcDropPos(pos, mob.getTruePosition()), mob, chr, false, droptype);
         }
         final List<MonsterGlobalDropEntry> globalEntry = new ArrayList<>(mi.getGlobalDrop());
