@@ -3169,8 +3169,6 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
             gain = (int) (gain * getExpm());
         }
 
-        gain =  gain * ServerProperties.getProperty("server.settings.expRate",1);
-
         if (isVip()) {
             gain = (int) (gain * (1.0D + (getVipExpRate() / 100D)));
         }
