@@ -4405,6 +4405,14 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
         }
         return -1;
     }
+    public final byte getPetByItemId(final int petId) {
+        for (final MaplePet pet : getSummonedPets()) {
+            if (pet.getPetItemId() == petId) {
+                return (byte) Math.max(-1, pet.getSummonedValue() - 1);
+            }
+        }
+        return -1;
+    }
 
     public final List<MaplePet> getPets() {
         return pets;

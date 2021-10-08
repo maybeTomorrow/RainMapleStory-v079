@@ -12,6 +12,7 @@ import provider.MapleData;
 import provider.MapleDataProvider;
 import provider.MapleDataProviderFactory;
 import provider.MapleDataTool;
+import server.ServerProperties;
 import server.quest.MapleQuestActionType;
 import server.quest.MapleQuestRequirementType;
 import tools.FileoutputUtil;
@@ -26,7 +27,7 @@ public class DumpQuests {
 
     public DumpQuests(boolean update) throws Exception {
         this.update = update;
-        this.quest = MapleDataProviderFactory.getDataProvider(new File((System.getProperty("path") != null ? System.getProperty("path") : "") + "wz/Quest.wz"));
+        this.quest = MapleDataProviderFactory.getDataProvider(new File(ServerProperties.getProperty("server.wzpath") + "/Quest.wz"));
         if (quest == null) {
             hadError = true;
         }

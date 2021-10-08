@@ -1189,6 +1189,9 @@ public abstract class AbstractPlayerInteraction {
     public final void showWZEffect(final String data) {
         getClient().sendPacket(UIPacket.ShowWZEffect(data));
     }
+    public final void showWZEffect(final String data, int type) {
+        getClient().sendPacket(UIPacket.ShowWZEffect(data,type));
+    }
 
     public final void EarnTitleMsg(final String data) {
         getClient().sendPacket(UIPacket.EarnTitleMsg(data));

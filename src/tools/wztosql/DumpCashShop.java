@@ -24,6 +24,7 @@ import provider.MapleDataTool;
 import server.CashItemFactory;
 import server.CashItemInfo;
 import server.MapleItemInformationProvider;
+import server.ServerProperties;
 import tools.FileoutputUtil;
 
 /**
@@ -32,7 +33,7 @@ import tools.FileoutputUtil;
  */
 public class DumpCashShop {
 
-    private static final MapleDataProvider data = MapleDataProviderFactory.getDataProvider(new File((System.getProperty("wzpath") != null ? System.getProperty("wzpath") : "") + "wz/Etc.wz"));
+    private static final MapleDataProvider data = MapleDataProviderFactory.getDataProvider(new File(ServerProperties.getProperty("server.wzpath") + "/Etc.wz"));
 
     public static final CashItemInfo.CashModInfo getModInfo(int sn) {
         CashItemInfo.CashModInfo ret = null;
@@ -155,6 +156,11 @@ public class DumpCashShop {
 
                     if (check) {
                         System.out.println(MapleItemInformationProvider.getInstance().getName(itemId));
+                        continue;
+                    }
+
+                    CashItemInfo.CashModInfo cd = getModInfo(sn);
+                    if(cd!=null&&cd.itemid>0){
                         continue;
                     }
 

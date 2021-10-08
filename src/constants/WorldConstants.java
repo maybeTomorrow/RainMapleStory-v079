@@ -120,7 +120,7 @@ public class WorldConstants {
         FLAG = ServerProperties.getProperty("server.settings.flag", FLAG);
         EXP_RATE = ServerProperties.getProperty("server.settings.expRate", EXP_RATE);
         MESO_RATE = ServerProperties.getProperty("server.settings.mesoRate", MESO_RATE);
-        DROP_RATE = ServerProperties.getProperty("server.settings.dropRat", DROP_RATE);
+        DROP_RATE = ServerProperties.getProperty("server.settings.dropRate", DROP_RATE);
         WORLD_TIP = ServerProperties.getProperty("server.settings.eventMessage", WORLD_TIP);
         SCROLL_MESSAGE = ServerProperties.getProperty("server.settings.serverMessage", SCROLL_MESSAGE);
         CHANNEL_COUNT = ServerProperties.getProperty("server.settings.channel.count", CHANNEL_COUNT);

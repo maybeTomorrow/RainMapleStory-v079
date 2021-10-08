@@ -953,7 +953,7 @@ public class MapleServerHandler extends ChannelInboundHandlerAdapter {
                 } catch (Throwable e) {
                 }
 
-//                System.err.println("[用戶端 報錯] 錯誤代碼 " + errortype + " 類型 " + type_str + "\r\n\t[數據] 長度 " + data_length + " [" + SendPacketOpcode.nameOf(opcodeheader) + " | " + opcodeheader + "]\r\n" + HexTool.toString(slea.read((int) slea.available())));
+                System.err.println("[用戶端 報錯] 錯誤代碼 " + errortype + " 類型 " + type_str + "\r\n\t[數據] 長度 " + data_length + " [" + SendPacketOpcode.nameOf(opcodeheader) + " | " + opcodeheader + "]\r\n" + HexTool.toString(slea.read((int) slea.available())));
                 String tab = "";
                 for (int i = 4; i > SendPacketOpcode.nameOf(opcodeheader).length() / 8; i--) {
                     tab += "\t";
@@ -1000,7 +1000,7 @@ public class MapleServerHandler extends ChannelInboundHandlerAdapter {
                 CharLoginHandler.LicenseRequest(slea, c);
                 break;
             default:
-                //System.err.println("[發現未處理數據包] Recv [" + header.toString() + "]");
+                System.err.println("[發現未處理數據包] Recv [" + header.toString() + "]");
                 break;
         }
     }

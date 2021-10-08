@@ -304,6 +304,7 @@ public enum ItemLoader {
             ps.close();
         } catch (SQLException ex) {
             System.out.println(ex);
+            System.out.println(table_equip);
             FileoutputUtil.outError("logs/資料庫異常.txt", ex);
         }
     }

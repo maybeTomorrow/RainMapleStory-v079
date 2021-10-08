@@ -69,8 +69,8 @@ import tools.FileoutputUtil;
 public class ChannelServer implements Serializable {
 
     public static long serverStartTime;
-    private short port = 17575;
-    private static final short DEFAULT_PORT = 17575;
+    private short port = 7575;
+    private static final short DEFAULT_PORT = 7575;
     private final int channel;
     private int running_MerchantID = 0;
     private int running_PlayerShopID = 0;

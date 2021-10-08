@@ -21,13 +21,14 @@ import provider.MapleDataProvider;
 import provider.MapleDataProviderFactory;
 import provider.MapleDataTool;
 import provider.WzXML.MapleDataType;
+import server.ServerProperties;
 import server.life.Element;
 import tools.FileoutputUtil;
 import tools.Pair;
 
 public class DumpItems {
 
-    private MapleDataProvider item, string = MapleDataProviderFactory.getDataProvider(new File((System.getProperty("wzpath") != null ? System.getProperty("wzpath") : "") + "wz/String.wz")), character;
+    private MapleDataProvider item, string = MapleDataProviderFactory.getDataProvider(new File(ServerProperties.getProperty("server.wzpath") + "/String.wz")), character;
     protected final MapleData cashStringData = string.getData("Cash.img");
     protected final MapleData consumeStringData = string.getData("Consume.img");
     protected final MapleData eqpStringData = string.getData("Eqp.img");
@@ -41,8 +42,8 @@ public class DumpItems {
 
     public DumpItems(boolean update) throws Exception {
         this.update = update;
-        this.item = MapleDataProviderFactory.getDataProvider(new File((System.getProperty("wzpath") != null ? System.getProperty("wzpath") : "") + "wz/Item.wz"));
-        this.character = MapleDataProviderFactory.getDataProvider(new File((System.getProperty("wzpath") != null ? System.getProperty("wzpath") : "") + "wz/Character.wz"));
+        this.item = MapleDataProviderFactory.getDataProvider(new File(ServerProperties.getProperty("server.wzpath")+ "/Item.wz"));
+        this.character = MapleDataProviderFactory.getDataProvider(new File(ServerProperties.getProperty("server.wzpath") + "/Character.wz"));
         if (item == null || string == null || character == null) {
             hadError = true;
         }

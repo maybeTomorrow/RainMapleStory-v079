@@ -111,6 +111,21 @@ public class UIPacket {
         return mplew.getPacket();
     }
 
+    public static final byte[] ShowWZEffect(final String path,int info) {
+        MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
+        mplew.writeShort(SendPacketOpcode.SHOW_ITEM_GAIN_INCHAT.getValue());
+        if (info == -1) {
+            mplew.write(0x12);//12
+        } else {
+            mplew.write(0x17);//17
+        }
+        mplew.writeMapleAsciiString(path);
+        if (info > -1) {
+            mplew.writeInt(info);
+        }
+        return mplew.getPacket();
+    }
+
     public static byte[] summonHelper(boolean summon) {
         MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
 

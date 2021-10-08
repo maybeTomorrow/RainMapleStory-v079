@@ -626,6 +626,10 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         return getPlayer().getMeso();
     }
 
+    public int getLevel() {
+        return getPlayer().getLevel();
+    }
+
     public int 判断金币() {
         return getPlayer().getMeso();
     }
@@ -1506,6 +1510,9 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
 
     public void worldMessage(String text) {
         World.Broadcast.broadcastMessage(MaplePacketCreator.serverNotice(6, text));
+    }
+    public void 喇叭(int type,String text) {
+        World.Broadcast.broadcastMessage(MaplePacketCreator.serverNotice(type, text));
     }
 
     public int getBeans() {

@@ -3,16 +3,8 @@ importPackage(net.sf.cherry.server.maps);
 
 var status = 0;
 
-var maps = Array(
-Array(500000000,3000,300),
-Array(702000000,3000,300),
-//Array(600000000,3000,300),
-Array(540000000,3000,300),
-Array(800000000,3000,300),
-Array(701000000,3000,300),
-Array(702100000,3000,300),
-Array(550000000,3000,300)
-);//旅游地图部分
+
+//旅游地图部分
 var selectedMap = -1;
 var cost = 0;
 
@@ -22,6 +14,17 @@ function start() {
 }
 
 function action(mode, type, selection) {
+var amaps = Array(
+Array(500000000,3000,300),
+Array(702000000,3000,300),
+//Array(600000000,3000,300),
+Array(540000000,3000,300),
+Array(800000000,3000,300),
+Array(701000000,3000,300),
+Array(702100000,3000,300),
+Array(550000000,3000,300)
+);
+
 	if (mode == -1) {
 		cm.dispose();
 	} else {
@@ -46,30 +49,30 @@ function action(mode, type, selection) {
 		} else if (status == 2) {
 var selStr = "现在就可以去往 #b泰国的水上市场,少林寺,日本古代神社#k游览一番。在各旅游地我都会为大家提供满意热诚的服务。那么请准备好，新手可以9折优惠。#b";
 				if (cm.getJob() == 0) {
-					for (var i = 0; i < maps.length; i++) {
-						selStr += "\r\n#L" + i + "##m" + maps[i][0] + "# ("+maps[i][2]+"金币)#l";
+					for (var i = 0; i < amaps.length; i++) {
+						selStr += "\r\n#L" + i + "##m" + amaps[i][0] + "# ("+amaps[i][2]+"金币)#l";
 					}
 				}else{
-					for (var i = 0; i < maps.length; i++) {
-						selStr += "\r\n#L" + i + "##m" + maps[i][0] + "# ("+maps[i][1]+"金币)#l";
+					for (var i = 0; i < amaps.length; i++) {
+						selStr += "\r\n#L" + i + "##m" + amaps[i][0] + "# ("+amaps[i][1]+"金币)#l";
 					}
 				}
 				cm.sendSimple(selStr);
 		} else if (status == 3) {
 			selectedMap = selection;
 			if (cm.getJob() == 0) {
-				cost = maps[selectedMap][2];
+				cost = amaps[selectedMap][2];
 			} else {
-				cost = maps[selectedMap][1];
+				cost = amaps[selectedMap][1];
 			}
-			cm.sendYesNo("你已经决定好，确定要去 #b#m" + maps[selectedMap][0] + "##k吗？那么你将要付给我 #b" + cost +"金币#k. 你真的想去？");
+			cm.sendYesNo("你已经决定好，确定要去 #b#m" + amaps[selectedMap][0] + "##k吗？那么你将要付给我 #b" + cost +"金币#k. 你真的想去？");
 		} else if (status == 4) {
 			if (cm.getMeso() < cost) {
 				cm.sendPrev("天啦,你钱不够! 这实在是太恐怖了!我不能带你去.");
 			} else {
 				cm.gainMeso(-cost);
 				cm.saveLocation("WORLDTOUR");
-				cm.warp(maps[selectedMap][0], 0);
+				cm.warp(amaps[selectedMap][0], 0);
 				cm.dispose();
 			}
 		}	

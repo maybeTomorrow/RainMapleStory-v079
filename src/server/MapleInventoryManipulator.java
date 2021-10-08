@@ -1073,7 +1073,7 @@ public class MapleInventoryManipulator {
                 }
             }
             final byte flag = source.getFlag();
-            if (quantity > source.getQuantity()) {
+            if (quantity > source.getQuantity()&&source.getItemId()!=2070015) {
                 c.sendPacket(MaplePacketCreator.enableActions());
                 return false;
             }
