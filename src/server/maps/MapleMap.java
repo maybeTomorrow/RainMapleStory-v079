@@ -526,7 +526,11 @@ public final class MapleMap {
                 continue;
             }
             double lastDrop = chr.getStat().realDropBuff - 100.0 <= 0 ? 100 : chr.getStat().realDropBuff - 100;
-            if (Randomizer.nextInt(999999) < ((de.itemId == 1012168 || de.itemId == 1012169 || de.itemId == 1012170 || de.itemId == 1012171) ? ((int) de.chance) : ((int) (de.chance * chServerrate * chr.getDropMod() * chr.getDropm() * ((chr.getVipExpRate() / 100) + 1.0D) * lastDrop / 100.0 * (showdown / 100.0))))) {
+            int  realDrop=((de.itemId == 1012168 || de.itemId == 1012169 || de.itemId == 1012170 || de.itemId == 1012171) ? ((int) de.chance) : ((int) (de.chance * chServerrate * chr.getDropMod() * chr.getDropm() * ((chr.getVipExpRate() / 100) + 1.0D) * lastDrop / 100.0 * (showdown / 100.0))));
+            if (mob.getStats().isBoss()){
+                realDrop*=4; //boss额外4倍爆率
+            }
+            if (Randomizer.nextInt(999999) < realDrop ) {
                 if (mesoDropped && droptype != 3 && de.itemId == 0) { //not more than 1 sack of meso
                     continue;
                 }
