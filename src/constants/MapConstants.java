@@ -150,6 +150,7 @@ public class MapConstants {
             case 220060301://  糾結的時間
             case 220070201://  毀壞的時間
             case 220070301://  禁忌的時間  
+            case 104010001://  猪猪海岸
                 return 2;
         }
         return 1;
