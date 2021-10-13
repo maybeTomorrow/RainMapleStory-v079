@@ -4760,6 +4760,12 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
      * @param quantity 獲得點數數量
      * @param show 是否提示獲得
      */
+
+
+    public int getNX(){
+        return getAcash();
+    }
+
     public void modifyCSPoints(int type, int quantity, boolean show) {
 
         switch (type) {

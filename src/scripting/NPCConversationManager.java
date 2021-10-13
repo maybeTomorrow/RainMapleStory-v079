@@ -1911,6 +1911,10 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         InterServerHandler.EnterCashShop(c, c.getPlayer(), false);
     }
 
+    public int getGamePoints(){
+        return getPlayer().getPoints();
+    }
+
     /*public int[] getSavedFaces() {
         return getPlayer().getSavedFaces();
     }
