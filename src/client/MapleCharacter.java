@@ -3173,18 +3173,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
             gain = (int) (gain * (1.0D + (getVipExpRate() / 100D)));
         }
 
-        //等级差经验
-        if (getLevel() > 110){
-            gain = gain * 12;
-        }else if (getLevel() > 90){
-            gain = gain * 10;
-        }else if (getLevel() > 70){
-            gain = gain * 8;
-        }else if (getLevel()>50){
-            gain =gain *4;
-        }else if (getLevel()>30){
-            gain =gain *2;
-        }
+
 
         if (getStat().equippedRing) {
             if (pty > 1) {
@@ -5250,6 +5239,13 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
         return mount;
     }
 
+    public int getMountId() {
+        if(mount!=null){
+            return mount.getItemId();
+        }
+       return 0;
+    }
+
     public int gmLevel() {
         return gmLevel;
     }
@@ -5761,6 +5757,18 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
     }
 
     public int getEXPMod() {
+        //等级差经验
+        if (getLevel() > 110){
+            return  stats.expMod * 12;
+        }else if (getLevel() > 90){
+            return   stats.expMod * 10;
+        }else if (getLevel() > 70){
+            return   stats.expMod * 8;
+        }else if (getLevel()>50){
+            return  stats.expMod *4;
+        }else if (getLevel()>30){
+            return stats.expMod *2;
+        }
         return stats.expMod;
     }
 
