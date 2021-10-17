@@ -23,7 +23,7 @@ function action(mode,type,selection) {
 			}
 			size += (ccPlayer.isGM() ? 4 : 1);
 		}	
-		if (next && (cm.getPlayer().isGM() || size >= 3)) {
+		if (next && (cm.getPlayer().isGM() || size >= 1)) {
 	    	    for(var i = 0; i < 10; i++) {
 			if (cm.getMap(106021500 + i).getCharactersSize() == 0) {
 		    		cm.warpParty(106021500 + i);
