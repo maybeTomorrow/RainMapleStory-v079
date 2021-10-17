@@ -1,5 +1,5 @@
 status = -1;
-var itemList = Array(
+var itemList = [
 //-------耳环-------
 Array(1032004, 500, 1, 0), //金耳环
 Array(1032005, 500, 1, 0), //红十字耳环
@@ -1693,7 +1693,7 @@ Array(3010094, 215, 1, 1), //漂漂猪椅子
 Array(3010098, 125, 1, 1), //电视宅人
 Array(3010106, 125, 1, 1), //雪狼战椅
 Array(3010112, 125, 1, 1)
-);
+];
 
 function start() {
     action(1, 0, 0);
@@ -1731,7 +1731,7 @@ function action(mode, type, selection) {
             var itemId = finalitem[finalchance][0];
             var quantity = finalitem[finalchance][2];
             var notice = finalitem[finalchance][3];
-            item = cm.gainGachaponItem(itemId, quantity, "整合型转蛋机", notice);
+            item = cm.gainGachaponItemTime(itemId, quantity, "整合型转蛋机", notice);
             if (item != -1) {
                 cm.gainItem(5220040, -1);
                 cm.sendOk("你获得了 #b#t" + item + "##k " + quantity + "个。");

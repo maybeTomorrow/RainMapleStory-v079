@@ -435,7 +435,7 @@ public class MapleServerHandler extends ChannelInboundHandlerAdapter {
                         & c.getPlayer().getMapId() != 980000604) {
                     //InterServerHandler.EnterCashShop(c, c.getPlayer(), false);
                     c.getSession().writeAndFlush(tools.MaplePacketCreator.enableActions());
-                    NPCScriptManager.getInstance().start(c, 9010000, "进入商城");
+                    NPCScriptManager.getInstance().start(c, 9010000, "entershop");
                 } else {
                     c.getPlayer().dropMessage(5, "该地图无法进入商城。");
                 }
