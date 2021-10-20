@@ -167,7 +167,7 @@ public class PlayerHandler {
 //            chr.getCheatTracker().registerOffense(CheatingOffense.USING_UNAVAILABLE_ITEM, Integer.toString(itemId));
 //            return;
 //        }
-        if (itemId == 3010001/*itemId / 10000 == 301*/ && GameConstants.isFishingMap(chr.getMapId())) {
+        if (itemId == 3011000/*itemId / 10000 == 301*/ && GameConstants.isFishingMap(chr.getMapId())) {
             boolean haz = false;
             boolean yg = false;
             for (IItem item : c.getPlayer().getInventory(MapleInventoryType.CASH).list()) {
