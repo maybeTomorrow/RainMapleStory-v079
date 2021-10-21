@@ -2,7 +2,7 @@ var weapon = [2040006, 2040007, 2040303, 2040403, 2040506, 2040507, 2040603, 204
 var req = [
 [4000313, 5],
 [4032226, 5],
-[4310030, 5]
+[4001126, 5]
 ];
 var sels;
 var status = -1;
@@ -24,12 +24,15 @@ function action(mode, type, selection) {
         var msg = "";
         msg += "\r\n#dÐèÒª:#b ";
         msg += "\r\n\r\n";
+
         for (var ii = 0; ii < req.length; ii++) {
             msg += "#i" + req[ii][0] + "##t" + req[ii][0] + "#x" + req[ii][1];
             if (ii % 3 == 0) {
                 msg += "\r\n";
             }
         }
+
+
         msg += "\r\n";
         msg += "#g----------------------------------------------\r\n";
         for (var i = 0; i < weapon.length; i++) {

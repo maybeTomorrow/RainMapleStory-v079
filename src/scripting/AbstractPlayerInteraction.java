@@ -1965,6 +1965,10 @@ public abstract class AbstractPlayerInteraction {
         spawnMob_map(id, mapid, new Point(x, y));
     }
 
+    public final void spawnMob_map(final int id, int mapid, final int x, final int y) {//指定地图召唤怪物
+        spawnMob_map(id, mapid, new Point(x, y));
+    }
+
     public final void spawnMob_map(final int id, final int mapid, final Point pos) {
         c.getChannelServer().getMapFactory().getMap(mapid).spawnMonsterOnGroundBelow(MapleLifeFactory.getMonster(id), pos);
     }
