@@ -147,7 +147,10 @@ public class MapleReactor extends AbstractMapleMapObject {
         if (stats.getType(state) < 999 && stats.getType(state) != -1) {
             //type 2 = only hit from right (kerning swamp plants), 00 is air left 02 is ground left
             final byte oldState = state;
-            if (!(stats.getType(state) == 2 && (charPos == 0 || charPos == 2))) { // next state
+
+            if(!(stats.getType(state) == 2 && (stance==0||stance==2))){//charPos 不管用，stance有用 2 left 3 right
+//            if ( !(stats.getType(state) == 2 && (charPos == 0 || charPos == 2)) ) { // next state
+//            if ( (charPos == 0 || charPos == 2) ) { // next state
                 state = stats.getNextState(state);
 
                 if (stats.getNextState(state) == -1 || stats.getType(state) == 999) { //end of reactor

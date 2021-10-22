@@ -110,13 +110,16 @@ public class MaplePacketCreator {
         SecondaryStatRemote[MapleBuffStat.召唤玩家8.getPosition()] |= MapleBuffStat.召唤玩家8.getValue();
     }
 
-    public static final byte[] getServerIP(final MapleClient c, final int port, final int clientId) {
+    public static final byte[] getServerIP(final MapleClient c,  int port, final int clientId) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
 
         mplew.writeShort(SendPacketOpcode.SERVER_IP.getValue());
         mplew.writeShort(0);
         if (ServerConfig.TESPIA) {
             mplew.write(ServerConfig.Gateway_IP2);
+        }else if (ServerConfig.proxy){
+            mplew.write(ServerConfig.Proxy_IP);
+            port=port+20000;
         } else {
             mplew.write(ServerConfig.Gateway_IP);
         }
@@ -127,13 +130,16 @@ public class MaplePacketCreator {
         return mplew.getPacket();
     }
 
-    public static final byte[] getChannelChange(final MapleClient c, final int port) {
+    public static final byte[] getChannelChange(final MapleClient c,  int port) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
 
         mplew.writeShort(SendPacketOpcode.CHANGE_CHANNEL.getValue());
         mplew.write(1);
         if (ServerConfig.TESPIA) {
             mplew.write(ServerConfig.Gateway_IP2);
+        }else if (ServerConfig.proxy){
+            mplew.write(ServerConfig.Proxy_IP);
+            port=port+20000;
         } else {
             mplew.write(ServerConfig.Gateway_IP);
         }

@@ -262,6 +262,7 @@ public class ChannelServer implements Serializable {
         return socket;
     }
 
+
     public final boolean isShutdown() {
         return shutdown;
     }

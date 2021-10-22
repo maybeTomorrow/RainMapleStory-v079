@@ -43,6 +43,7 @@ public class ServerConfig {
     public static int RSGS = 0;
     public static int maxlevel = 250;
     public static int kocmaxlevel = 200;
+    public static boolean proxy = false;
     public static int cslevel = 100;
     public static int pddj = 1;
     public static int pddy = 1;
@@ -66,6 +67,7 @@ public class ServerConfig {
     public static final byte[] Gateway_IP2 = new byte[]{(byte) 103, (byte) 222, (byte) 188, (byte) 19};
 //    public static final byte[] Gateway_IP = new byte[]{(byte) 127, (byte) 0, (byte) 0, (byte) 1};//111.177.16.48
     public static final byte[] Gateway_IP = new byte[]{(byte) 221, (byte) 231, (byte) 130, (byte) 70};//111.177.16.48
+    public static final byte[] Proxy_IP = new byte[]{(byte) 116, (byte) 62, (byte) 26, (byte) 181};//111.177.16.48
     //public static final byte[] Gateway_IP2 = new byte[]{(byte) 127, (byte) 0, (byte) 0, (byte) 1};
     //public static final byte[] Gateway_IP2 = new byte[]{(byte) 192, (byte) 168, (byte) 1, (byte) 102};
     //public static final byte[] Gateway_IP = new byte[]{(byte) 221, (byte) 231, (byte) 130, (byte) 70};
@@ -178,6 +180,7 @@ public class ServerConfig {
         cslevel = ServerProperties.getProperty("server.settings.cslevel", cslevel);
         maxlevel = ServerProperties.getProperty("server.settings.maxlevel", maxlevel);
         kocmaxlevel = ServerProperties.getProperty("server.settings.kocmaxlevel", kocmaxlevel);
+        proxy = ServerProperties.getProperty("server.settings.proxy", proxy);
     }
 
     static {

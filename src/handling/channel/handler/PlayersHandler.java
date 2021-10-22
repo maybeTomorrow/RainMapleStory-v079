@@ -185,6 +185,7 @@ public class PlayersHandler {
         if (reactor == null || !reactor.isAlive()) {
             return;
         }
+        //跳左0 跳右1 平左2 平右3
         reactor.hitReactor(charPos, stance, c);
     }
 
