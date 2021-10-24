@@ -29,7 +29,7 @@ import tools.FileoutputUtil;
 public class CashItemFactory {
 
     private final static CashItemFactory instance = new CashItemFactory();
-    private final static int[] bestItems = new int[]{50100010, 50100010, 50100010, 50100010, 50100010};
+    private final static int[] bestItems = new int[]{80000258, 80000259, 50100010, 50100010, 50100010};
     private boolean initialized = false;
     private final Map<Integer, List<Integer>> openBox = new HashMap();
     private final Map<Integer, CashItemInfo> itemStats = new HashMap<>();

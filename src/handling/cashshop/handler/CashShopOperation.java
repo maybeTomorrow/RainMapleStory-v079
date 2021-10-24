@@ -611,8 +611,11 @@ public class CashShopOperation {
                 RefreshCashShop(c);
                 break;
             }
-            case 32: { //1 meso
-                final CashItemInfo item = CashItemFactory.getInstance().getItem(slea.readInt());
+
+            case 32:
+            case 33: { //1 meso
+                int itemid=slea.readInt();
+                final CashItemInfo item = CashItemFactory.getInstance().getItem(itemid);
                 if (item == null || !MapleItemInformationProvider.getInstance().isQuestItem(item.getId())) {
                     c.sendPacket(MTSCSPacket.sendCSFail(0));
                     RefreshCashShop(c);

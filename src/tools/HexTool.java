@@ -85,7 +85,7 @@ public class HexTool {
             hexed.append(toString(bytes[i]));
             hexed.append(' ');
         }
-        return hexed.substring(0, hexed.length() - 1);
+        return hexed.substring(0, hexed.length() - (hexed.length()>0?1:0) );
     }
 
     /**

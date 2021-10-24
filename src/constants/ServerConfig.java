@@ -65,8 +65,8 @@ public class ServerConfig {
     //public static final byte[] Gateway_IP2 = new byte[]{(byte) 43, (byte) 249, (byte) 193, (byte) 73};
 //    public static final byte[] Gateway_IP = new byte[]{(byte) 0x7f, (byte) 0, (byte) 0, (byte) 1};//103.222.188.19
     public static final byte[] Gateway_IP2 = new byte[]{(byte) 103, (byte) 222, (byte) 188, (byte) 19};
-//    public static final byte[] Gateway_IP = new byte[]{(byte) 127, (byte) 0, (byte) 0, (byte) 1};//111.177.16.48
-    public static final byte[] Gateway_IP = new byte[]{(byte) 221, (byte) 231, (byte) 130, (byte) 70};//111.177.16.48
+    public static final byte[] Gateway_IP = new byte[]{(byte) 127, (byte) 0, (byte) 0, (byte) 1};//111.177.16.48
+//    public static final byte[] Gateway_IP = new byte[]{(byte) 221, (byte) 231, (byte) 130, (byte) 70};//111.177.16.48
     public static final byte[] Proxy_IP = new byte[]{(byte) 116, (byte) 62, (byte) 26, (byte) 181};//111.177.16.48
     //public static final byte[] Gateway_IP2 = new byte[]{(byte) 127, (byte) 0, (byte) 0, (byte) 1};
     //public static final byte[] Gateway_IP2 = new byte[]{(byte) 192, (byte) 168, (byte) 1, (byte) 102};
