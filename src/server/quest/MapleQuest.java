@@ -282,14 +282,14 @@ public class MapleQuest implements Serializable {
             return;
         }
         if (id == 2337) {
-            if (canHold(c)) {
-                if (!c.haveItem(1142188, 1, false, true)) {
-                    MapleInventoryManipulator.addById(c.getClient(), 1142188, (short) 1, "", null, 0);
-                }
-            } else {
-                c.dropMessage(1, "您的背包空間不足，無法完成任務。");
-                return;
-            }
+//            if (canHold(c)) {
+//                if (!c.haveItem(1142188, 1, false, true)) {
+//                    MapleInventoryManipulator.addById(c.getClient(), 1142188, (short) 1, "", null, 0);
+//                }
+//            } else {
+//                c.dropMessage(1, "您的背包空間不足，無法完成任務。");
+//                return;
+//            }
         }
 
         if ((autoPreComplete || checkNPCOnMap(c, npc)) && canComplete(c, npc)) {
