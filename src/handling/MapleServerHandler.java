@@ -338,6 +338,7 @@ public class MapleServerHandler extends ChannelInboundHandlerAdapter {
     }
 
     public static final void handlePacket(final RecvPacketOpcode header, final LittleEndianAccessor slea, final MapleClient c, final boolean cs) throws Exception {
+        long t1=System.currentTimeMillis();
         switch (header) {
             case CLIENT_LOGOUT:
                 //PlayerHandler.handleLogout(slea, c);
@@ -1002,6 +1003,10 @@ public class MapleServerHandler extends ChannelInboundHandlerAdapter {
             default:
                 System.err.println("[發現未處理數據包] Recv [" + header.toString() + "]");
                 break;
+        }
+        long t2=System.currentTimeMillis()-t1;
+        if(t2>2000){
+            System.out.printf("%scost %d ms\t\n",header.name(),t2);
         }
     }
 }
