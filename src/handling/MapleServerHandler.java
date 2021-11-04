@@ -1006,7 +1006,7 @@ public class MapleServerHandler extends ChannelInboundHandlerAdapter {
         }
         long t2=System.currentTimeMillis()-t1;
         if(t2>2000){
-            System.out.printf("%scost %d ms\t\n",header.name(),t2);
+            System.out.printf("%s cost %d ms\t\n",header.name(),t2);
         }
     }
 }
