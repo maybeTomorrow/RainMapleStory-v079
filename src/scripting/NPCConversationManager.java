@@ -30,21 +30,15 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import client.inventory.Equip;
+import client.inventory.*;
 import client.ISkill;
-import client.inventory.IItem;
 import client.MapleCharacter;
 import constants.GameConstants;
-import client.inventory.ItemFlag;
 import client.MapleClient;
 import client.MapleJob;
-import client.inventory.MapleInventory;
-import client.inventory.MapleInventoryType;
 import client.SkillFactory;
 import client.SkillEntry;
 import client.MapleStat;
-import client.inventory.Item;
-import client.inventory.ItemLoader;
 import client.status.MonsterStatus;
 import database.DBConPool;
 import server.MapleCarnivalParty;
@@ -1504,6 +1498,13 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         }, 20000); //10 sec 10 sec
     }
 
+    public void petExcludeItem(int itemId){
+        MaplePet p=getPlayer().getPet(0);
+        if(p!=null){
+            p.pushExcluded(itemId);
+        }
+
+    }
     public void 開啟小鋼珠(int type) {
         c.sendPacket(MaplePacketCreator.openBeans(getPlayer().getBeans(), type));
     }
@@ -1890,6 +1891,20 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
 
             text += "#r#o" + mobs.get(i) + "##k " /*+ (Integer.valueOf(chance >= 999999 ? 1000000 : chance).doubleValue() / 10000.0) + "%" */ + (quest > 0 && MapleQuest.getInstance(quest).getName().length() > 0 ? ("#b需要进行 " + MapleQuest.getInstance(quest).getName() + " 任务来取得#k") : "") + "\r\n";
 
+        }
+        sendNext(text);
+    }
+    public void showExcludeItem() {
+        MapleMonsterInformationProvider mi = MapleMonsterInformationProvider.getInstance();
+
+        List<Integer> list=getPlayer().getPet(0).getExcluded();
+
+        String text = "#d你排除了下列物品#k: \r\n\r\n";
+
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i)>0){
+                text += "\r\n#i" + list.get(i) + "  #t"+list.get(i)+"\r\n";
+            }
         }
         sendNext(text);
     }
@@ -2641,6 +2656,9 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         }
         return data;
     }
+
+
+
 
     public int 家族成员数(int a) {
         int data = 0;

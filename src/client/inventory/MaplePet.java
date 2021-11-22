@@ -93,7 +93,7 @@ public class MaplePet implements Serializable {
     private byte fullness = 100, level = 1, summoned = 0;
     private short inventorypos = 0, closeness = 0, flags = 0;
     private boolean changed = false;
-    private int[] excluded = new int[10];
+    private int[] excluded = new int[20];
 
     private MaplePet(final int petitemid, final int uniqueid) {
         this.petitemid = petitemid;
@@ -132,6 +132,9 @@ public class MaplePet implements Serializable {
                 ret.setFlags(rs.getShort("flags"));
                 String[] list = rs.getString("excluded").split(",");
                 for (int i = 0; i < ret.excluded.length; i++) {
+                    if(i>=list.length){
+                        break;
+                    }
                     ret.excluded[i] = Integer.parseInt(list[i]);
                 }
                 ret.changed = false;
@@ -369,10 +372,16 @@ public class MaplePet implements Serializable {
     }
 
     public void clearExcluded() {
-        for (int i = 0; i < this.excluded.length; i++) {
-            this.excluded[i] = 0;
+//        for (int i = 0; i < 10; i++) {
+//            this.excluded[i] = 0;
+//        }
+//        this.changed = true;
+    }
+    public void removeExcluded(int index) {
+        if (index < this.excluded.length) {
+            this.excluded[index] = 0;
+            this.changed = true;
         }
-        this.changed = true;
     }
 
     public List<Integer> getExcluded() {
@@ -385,10 +394,47 @@ public class MaplePet implements Serializable {
         return list;
     }
 
-    public void addExcluded(int i, int itemId) {
-        if (i < this.excluded.length) {
-            this.excluded[i] = itemId;
-            this.changed = true;
+    public List<Integer> getExcludedTotal() {
+        List list = new ArrayList();
+        for (int i = 0; i < this.excluded.length; i++) {
+            list.add(this.excluded[i]);
         }
+        return list;
+    }
+
+
+    public List<Integer> getExcludedEmpty() {
+        List list = new ArrayList();
+        return list;
+    }
+
+    public void pushExcluded(int itemId) {
+        for(int i=0;i<this.excluded.length;i++){
+            if(this.excluded[i]==0){
+                this.excluded[i] = itemId;
+                this.changed = true;
+                break;
+            }
+        }
+    }
+    public void addExcluded(int k, int itemId) {
+
+        int last=-1;
+        for(int i=0;i<this.excluded.length;i++){
+            if(last==-1&&this.excluded[i]==0){
+                last=i;
+            }else if(this.excluded[i]==itemId){
+                last=-1;
+                break;
+            }
+        }
+        if(last>-1){
+            this.excluded[last]=itemId;
+            this.changed=true;
+        }
+//        if (i < this.excluded.length) {
+//            this.excluded[i] = itemId;
+//            this.changed = true;
+//        }
     }
 }

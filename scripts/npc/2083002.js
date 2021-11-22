@@ -30,7 +30,7 @@ function action(mode, type, selection) {
                 cm.warp(240040700, 0);
                 cm.dispose();
             } else {
-                cm.刷新地图();
+//                cm.刷新地图();
                 cm.warpParty(240040700);
                 cm.dispose();
             }
