@@ -1723,6 +1723,7 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
             name.append("#d毒素 : #b" + ((onemob.getStats().getEffectiveness(Element.POISON)) == ElementalEffectiveness.IMMUNE ? "免疫" : (onemob.getStats().getEffectiveness(Element.POISON)) == ElementalEffectiveness.STRONG ? "抗性" : (onemob.getStats().getEffectiveness(Element.POISON)) == ElementalEffectiveness.WEAK ? "弱点" : "正常") + "#k  ");
             name.append("#d火焰 : #b" + ((onemob.getStats().getEffectiveness(Element.FIRE)) == ElementalEffectiveness.IMMUNE ? "免疫" : (onemob.getStats().getEffectiveness(Element.FIRE)) == ElementalEffectiveness.STRONG ? "抗性" : (onemob.getStats().getEffectiveness(Element.FIRE)) == ElementalEffectiveness.WEAK ? "弱点" : "正常") + "#k\r\n");
             name.append("--------------------------------------\r\n\r\n");
+            MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
             for (int i = 0; i < ranks.size(); i++) {
                 de = ranks.get(i);
                 if (de.chance > 0 && (de.questid <= 0 || (de.questid > 0 && MapleQuest.getInstance(de.questid).getName().length() > 0))) {
@@ -1736,9 +1737,14 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
                         itemId = 4031041; //display sack of cash
                         namez = (de.Minimum * getClient().getChannelServer().getMesoRate()) + " 到 " + (de.Maximum * getClient().getChannelServer().getMesoRate()) + " 金币";
                     }
+
+                    if (itemId != 0 && !ii.itemExists(itemId)) {
+                        continue;
+                    }
                     ch = de.chance * getClient().getChannelServer().getDropRate();
                     name.append((num + 1) + ") #v" + itemId + "#" + namez + (getPlayer().isGM() ? " - #r" + (Integer.valueOf(ch >= 999999 ? 1000000 : ch).doubleValue() / 10000.0) + "% 爆率。 #k" : "") + (de.questid > 0 && MapleQuest.getInstance(de.questid).getName().length() > 0 ? ("需要接受任务 " + MapleQuest.getInstance(de.questid).getName() + "") : "") + "\r\n");
                     num++;
+
                 }
             }
             if (name.length() > 0) {
