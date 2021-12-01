@@ -72,9 +72,6 @@ public class MapleQuest implements Serializable {
             } else if (type.equals(MapleQuestRequirementType.endscript)) {
                 ret.customend = true;
             } else if (type.equals(MapleQuestRequirementType.mob)) {
-                if (ret.getId()==2141){
-                    System.out.println("test");
-                }
                 for (Pair<Integer, Integer> mob : req.getDataStore()) {
                     ret.relevantMobs.put(mob.left, mob.right);
                 }

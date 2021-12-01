@@ -46,13 +46,13 @@ function action(mode, type, selection) {
                 while (it.hasNext()) {
                     var cPlayer = it.next();
                     var ccPlayer = cm.getPlayer().getMap().getCharacterById(cPlayer.getId());
-                    if (ccPlayer == null || ccPlayer.getLevel() < 91 || ccPlayer.getLevel() > 200) {
+                    if (ccPlayer == null || ccPlayer.getLevel() < 50 || ccPlayer.getLevel() > 200) {
                         next = false;
                         break;
                     }
                     size += (ccPlayer.isGM() ? 4 : 1);
                 }
-                if (next && size >= 3) {
+                if (next && size >= 1) {
                     var em = cm.getEventManager("Ellin");
                     if (em == null) {
                         cm.sendOk("Please try again later.");
