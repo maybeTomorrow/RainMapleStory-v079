@@ -44,6 +44,7 @@ public class ServerConfig {
     public static int maxlevel = 250;
     public static int kocmaxlevel = 200;
     public static boolean proxy = false;
+    public static String channel_ip ;
     public static int cslevel = 100;
     public static int pddj = 1;
     public static int pddy = 1;
@@ -55,23 +56,11 @@ public class ServerConfig {
         return pvp && ch == pvpch;
     }
 
-    //public static final byte[] Gateway_IP = new byte[]{(byte) 182, (byte) 161, (byte) 43, (byte) 131};
-    //public static final byte[] Gateway_IP2 = /*getIP3();*/new byte[]{(byte) 182, (byte) 161, (byte) 43, (byte) 131};
-    //public static final byte[] Gateway_IP = new byte[]{(byte) 103, (byte) 219, (byte) 31, (byte) 182};
-    //public static final byte[] Gateway_IP2 = new byte[]{(byte) 103, (byte) 219, (byte) 31, (byte) 182};
-    //public static final byte[] Gateway_IP = new byte[]{(byte) 39, (byte) 104, (byte) 172, (byte) 229};
-    //public static final byte[] Gateway_IP2 = new byte[]{(byte) 39, (byte) 104, (byte) 172, (byte) 229};
-    //public static final byte[] Gateway_IP = new byte[]{(byte) 43, (byte) 249, (byte) 193, (byte) 73};
-    //public static final byte[] Gateway_IP2 = new byte[]{(byte) 43, (byte) 249, (byte) 193, (byte) 73};
-//    public static final byte[] Gateway_IP = new byte[]{(byte) 0x7f, (byte) 0, (byte) 0, (byte) 1};//103.222.188.19
+
     public static final byte[] Gateway_IP2 = new byte[]{(byte) 103, (byte) 222, (byte) 188, (byte) 19};
-    public static final byte[] Gateway_IP = new byte[]{(byte) 127, (byte) 0, (byte) 0, (byte) 1};//111.177.16.48
-//    public static final byte[] Gateway_IP = new byte[]{(byte) 221, (byte) 231, (byte) 130, (byte) 70};//111.177.16.48
+    public static byte[] Gateway_IP = new byte[]{(byte) 192, (byte) 168, (byte) 1, (byte) 126};//111.177.16.48
     public static final byte[] Proxy_IP = new byte[]{(byte) 116, (byte) 62, (byte) 26, (byte) 181};//111.177.16.48
-    //public static final byte[] Gateway_IP2 = new byte[]{(byte) 127, (byte) 0, (byte) 0, (byte) 1};
-    //public static final byte[] Gateway_IP2 = new byte[]{(byte) 192, (byte) 168, (byte) 1, (byte) 102};
-    //public static final byte[] Gateway_IP = new byte[]{(byte) 221, (byte) 231, (byte) 130, (byte) 70};
-    //public static final byte[] Gateway_IP2 = new byte[]{(byte) 221, (byte) 231, (byte) 130, (byte) 70};
+
 
     public static String[] getEvents(boolean reLoad) {
         return getEventList(reLoad).split(",");
@@ -181,6 +170,13 @@ public class ServerConfig {
         maxlevel = ServerProperties.getProperty("server.settings.maxlevel", maxlevel);
         kocmaxlevel = ServerProperties.getProperty("server.settings.kocmaxlevel", kocmaxlevel);
         proxy = ServerProperties.getProperty("server.settings.proxy", proxy);
+        channel_ip = ServerProperties.getProperty("server.settings.ip", channel_ip);
+        if(!channel_ip.equals("")){
+            String []tmnp=channel_ip.split(".");
+            for(int i=0;i<tmnp.length&&i<4;i++){
+                Gateway_IP[i]=(byte)Integer.parseInt(tmnp[i]);
+            }
+        }
     }
 
     static {
