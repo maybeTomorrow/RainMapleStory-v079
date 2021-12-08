@@ -573,7 +573,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
 
         /* 計算獲得的經驗值*/
         for (final AttackerEntry attackEntry : attackers) {
-            baseExp = (int) Math.ceil(totalBaseExp * ((double) attackEntry.getDamage() / getMobMaxHp()));
+            baseExp = (int) Math.ceil(totalBaseExp * ((double) attackEntry.getDamage() /getMobMaxHp()));
             attackEntry.killedMob(getMap(), baseExp, attackEntry == highest, lastSkill);
         }
 
@@ -1733,7 +1733,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         @Override
         public final void killedMob(final MapleMap map, final int baseExp, final boolean mostDamage, final int lastSkill) {
             MapleCharacter pchr, highest = null;
-            long iDamage, highestDamage = 0;
+            long onlineDamage=0,iDamage, highestDamage = 0;
             int iexp;
             MapleParty party;
             double averagePartyLevel, expWeight, levelMod, innerBaseExp, expFraction;
@@ -1742,6 +1742,12 @@ public class MapleMonster extends AbstractLoadedMapleLife {
             byte Class_Bonus_EXP;
             byte Premium_Bonus_EXP;
             byte added_partyinc = 0;
+
+            for (final Entry<MapleCharacter, OnePartyAttacker> attacker : resolveAttackers().entrySet()) {
+                if (attacker.getKey().getMap() == map) {
+                    onlineDamage+=attacker.getValue().damage;
+                }
+            }
 
             for (final Entry<MapleCharacter, OnePartyAttacker> attacker : resolveAttackers().entrySet()) {
                 party = attacker.getValue().lastKnownParty;
@@ -1781,7 +1787,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
                     highest = attacker.getKey();
                     highestDamage = iDamage;
                 }
-                innerBaseExp = baseExp * ((double) iDamage / totDamage);
+                innerBaseExp = baseExp * ((double) iDamage / onlineDamage);
                 expFraction = innerBaseExp / (expApplicable.size() + 1);
 
                 for (final MapleCharacter expReceiver : expApplicable) {
