@@ -4462,11 +4462,11 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
     }
 
     public FameStatus canGiveFame(MapleCharacter from) {
-        if (lastfametime >= System.currentTimeMillis() - 60 * 60 * 24 * 1000) {
-            return FameStatus.NOT_TODAY;
-        } else if (from == null || lastmonthfameids == null || lastmonthfameids.contains(from.getId())) {
-            return FameStatus.NOT_THIS_MONTH;
-        }
+//        if (lastfametime >= System.currentTimeMillis() - 60 * 60 * 24 * 1000) {
+//            return FameStatus.NOT_TODAY;
+//        } else if (from == null || lastmonthfameids == null || lastmonthfameids.contains(from.getId())) {
+//            return FameStatus.NOT_THIS_MONTH;
+//        }
         return FameStatus.OK;
     }
 
