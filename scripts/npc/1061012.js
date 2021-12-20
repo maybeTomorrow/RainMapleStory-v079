@@ -46,7 +46,8 @@ function checkJob() {
     while (it.hasNext()) {
 	var cPlayer = it.next();
 
-	if (cPlayer.getJobId() == 312 || cPlayer.getJobId() == 322 || cPlayer.getJobId() == 900) {
+//	if (cPlayer.getJobId() == 312 || cPlayer.getJobId() == 322 || cPlayer.getJobId() == 900) {
+	if (cPlayer.getJobId() >0) {
 	    if (cPlayer.getLevel() < 120) {
 		return 2;
 	    }
