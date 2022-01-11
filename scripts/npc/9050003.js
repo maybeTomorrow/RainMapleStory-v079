@@ -1,5 +1,6 @@
 status = -1;
-var itemList = Array(
+
+var itemList = [
 //-------耳环-------
 Array(1032004, 500, 1, 0), //金耳环
 Array(1032005, 500, 1, 0), //红十字耳环
@@ -388,6 +389,7 @@ Array(1082179, 100, 1, 0), //马绍尔手套(黄)
 Array(1082234, 50, 1, 1), //永恒定边手套
 Array(1082235, 50, 1, 1), //永恒逍遥手套
 Array(1082236, 50, 1, 1), //永恒白云手套
+
 Array(1082237, 50, 1, 1), //永恒探云手套
 Array(1082238, 50, 1, 1), //永恒抚浪手套
 Array(1082239, 50, 1, 1), //重生定边手套
@@ -1056,7 +1058,7 @@ Array(2000005, 900, 30, 0), //超级药水
 Array(2022245, 850, 5, 0), //心跳停止糖
 Array(1382013, 200, 1, 1), //烈焰之杖
 Array(1382015, 100, 1, 1), //毒蘑菇
-Array(1382037, 140, 1, 1), //偃月之杖		
+Array(1382037, 140, 1, 1), //偃月之杖
 Array(1002894, 100, 1, 1), //粉色编织发带
 Array(1002895, 100, 1, 1), //红色编织发带
 Array(1002896, 30, 1, 1), //紫色编织发带
@@ -1693,13 +1695,19 @@ Array(3010094, 215, 1, 1), //漂漂猪椅子
 Array(3010098, 125, 1, 1), //电视宅人
 Array(3010106, 125, 1, 1), //雪狼战椅
 Array(3010112, 125, 1, 1)
-);
+];
 
 function start() {
+
     action(1, 0, 0);
 }
 
+
+
 function action(mode, type, selection) {
+
+
+
     if (mode == 1) {
         status++;
     } else {
@@ -1719,6 +1727,8 @@ function action(mode, type, selection) {
     } else if (status == 1) {
         var chance = Math.floor(Math.random() * 1000);
         var finalitem = Array();
+
+
         for (var i = 0; i < itemList.length; i++) {
             if (itemList[i][1] >= chance) {
                 finalitem.push(itemList[i]);
@@ -1731,7 +1741,7 @@ function action(mode, type, selection) {
             var itemId = finalitem[finalchance][0];
             var quantity = finalitem[finalchance][2];
             var notice = finalitem[finalchance][3];
-            item = cm.gainGachaponItem(itemId, quantity, "整合型转蛋机", notice);
+            item = cm.gainGachaponItemTime(itemId, quantity, "整合型转蛋机", notice);
             if (item != -1) {
                 cm.gainItem(5220040, -1);
                 cm.sendOk("你获得了 #b#t" + item + "##k " + quantity + "个。");
@@ -1747,3 +1757,7 @@ function action(mode, type, selection) {
         }
     }
 }
+
+
+
+

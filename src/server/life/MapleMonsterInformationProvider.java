@@ -208,11 +208,12 @@ public class MapleMonsterInformationProvider {
         return mobs;
     }
 
-    public int getDropChance(int monsterId) {
+    public int getDropChance(int monsterId,int itemId) {
         int chance = 0;
         try (Connection con = DBConPool.getInstance().getDataSource().getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT chance FROM drop_data where dropperid = ?");
+            PreparedStatement ps = con.prepareStatement("SELECT chance FROM drop_data where dropperid = ? and itemid=?");
             ps.setInt(1, monsterId);
+            ps.setInt(2, itemId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
 

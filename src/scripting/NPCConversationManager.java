@@ -1813,6 +1813,10 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         c.sendPacket(MaplePacketCreator.openBeans(getPlayer().getBeans(), 0));
         c.getPlayer().dropMessage(5, "按住左右鍵可以调整力道,建议调好角度连续打,不要按暂停若九宮格卡住没反应重新打开豆豆机");
     }
+    public void openDD(int i) {//打开豆豆机界面
+        c.sendPacket(MaplePacketCreator.openBeans(getPlayer().getBeans(), 0));
+        c.getPlayer().dropMessage(5, "按住左右鍵可以调整力道,建议调好角度连续打,不要按暂停若九宮格卡住没反应重新打开豆豆机");
+    }
 
     public void setMonsterRiding(int itemid) {//裝備不能正常裝備的坐騎
         short src = getClient().getPlayer().haveItemPos(itemid);
@@ -1893,9 +1897,9 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
             if (mi.getDropQuest(mobs.get(i)) > 0) {
                 quest = mi.getDropQuest(mobs.get(i));
             }
-            int chance = mi.getDropChance(mobs.get(i)) * getClient().getChannelServer().getDropRate();
+            int chance = mi.getDropChance(mobs.get(i),itemid) * getClient().getChannelServer().getDropRate();
 
-            text += "#r#o" + mobs.get(i) + "##k " /*+ (Integer.valueOf(chance >= 999999 ? 1000000 : chance).doubleValue() / 10000.0) + "%" */ + (quest > 0 && MapleQuest.getInstance(quest).getName().length() > 0 ? ("#b需要进行 " + MapleQuest.getInstance(quest).getName() + " 任务来取得#k") : "") + "\r\n";
+            text += "#r#o" + mobs.get(i) + "##k " + (Integer.valueOf(chance >= 999999 ? 1000000 : chance).doubleValue() / 10000.0) + "%"  + (quest > 0 && MapleQuest.getInstance(quest).getName().length() > 0 ? ("#b需要进行 " + MapleQuest.getInstance(quest).getName() + " 任务来取得#k") : "") + "\r\n";
 
         }
         sendNext(text);
