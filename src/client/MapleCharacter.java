@@ -5774,6 +5774,8 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
             return  stats.expMod *6;
         }else if (getLevel()>30){
             return stats.expMod *5;
+        }else if (getLevel()>20){
+            return stats.expMod *4;
         }
         return stats.expMod;
     }

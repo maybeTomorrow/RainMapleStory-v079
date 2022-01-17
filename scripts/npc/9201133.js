@@ -8,7 +8,7 @@ function action(mode, type, selection) {
     }
     if (status == 0) {
 		if (cm.getPlayer().getMapId() == 105050400) {
-			if (cm.getPlayer().getLevel() < 40 && cm.haveItem(4032496)) {
+			if (cm.getPlayer().getLevel() < 100 && cm.haveItem(4032496)) {
 				cm.sendYesNo("你想到达地狱大公散步的地方?");
 			} else {
 				cm.sendOk("你需要少于40级并且需要恶魔猎手的饰品进入.");
@@ -47,7 +47,7 @@ function action(mode, type, selection) {
 			cm.warp(677000013,0);
 			cm.dispose();
 		} else if (cm.getPlayer().getMapId() == 677000013) { //warp to another astaroth map.
-			if (cm.getPlayer().getLevel() < 40 && cm.haveItem(4032496)) {
+			if (cm.getPlayer().getLevel() < 100 && cm.haveItem(4032496)) {
 				if (cm.getParty() == null) {
 					cm.sendOk("你必须在这里开组队.");
 				} else {
@@ -59,7 +59,7 @@ function action(mode, type, selection) {
 					var it = party.iterator();
 					while (it.hasNext()) {
 						var cPlayer = it.next();
-						if ((cPlayer.getLevel() >= 10 && cPlayer.getLevel() < 40) || cPlayer.getJobId() == 900) {
+						if ((cPlayer.getLevel() >= 10 && cPlayer.getLevel() < 100) || cPlayer.getJobId() == 900) {
 							levelValid += 1;
 						} else {
 							next = false;
@@ -68,7 +68,7 @@ function action(mode, type, selection) {
 							inMap += 1;
 						}
 					}
-					if (party.size() < 2 || inMap < 2) {
+					if (party.size() < 1 || inMap < 1) {
 						next = false;
 					}
 					if (next) {

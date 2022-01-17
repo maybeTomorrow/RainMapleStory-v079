@@ -221,7 +221,7 @@ public class EventInstanceManager {
 
     public boolean check() {
         for (MapleCharacter chr : getPlayers()) {
-            if (!(chr.getLevel() >= 30 && chr.getLevel() <= 50)) {
+            if (!(chr.getLevel() >= 30 && chr.getLevel() <= 200)) {
                 return false;
             }
         }

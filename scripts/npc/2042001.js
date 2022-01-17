@@ -21,13 +21,13 @@ function action(mode, type, selection) {
         }
     } else if (status == 1) {
 		var pt = cm.getPlayer().getParty();
-		if (checkLevelsAndMap(30, 50) == 1) {
+		if (checkLevelsAndMap(30, 200) == 1) {
            cm.sendOk("队伍里有人等级不符合。");
            cm.dispose();
-        } else if (checkLevelsAndMap(30, 50) == 2) {
+        } else if (checkLevelsAndMap(30, 200) == 2) {
            cm.sendOk("在地图上找不到您的队友。");
            cm.dispose();
-		} else if (pt.getMembers().size() < 2) {
+		} else if (pt.getMembers().size() < 1) {
 			cm.sendOk("需要 2 人以上才可以擂台！！");
 			cm.dispose();
 		} else {

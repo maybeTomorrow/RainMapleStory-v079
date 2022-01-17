@@ -34,7 +34,7 @@ function action(mode, type, selection) {
         switch (selection) {
             case 0: {
                 var level = cm.getPlayerStat("LVL");
-                if (level >= 30 && level <= 50) {
+                if (level >= 30 && level <= 200) {
 					cm.saveLocation("MONSTER_CARNIVAL");
 					cm.warp(980000000, "st00");
                 } else if (level >= 51 && level <= 120) {

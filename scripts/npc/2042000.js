@@ -25,14 +25,14 @@ function action(mode, type, selection) {
         } else {
             if (cm.isLeader()) {
 				var pt = cm.getPlayer().getParty();
-				if (pt.getMembers().size() < 2) {
+				if (pt.getMembers().size() < 1) {
 						cm.sendOk("需要 2 人以上才可以嘉年华！！");
 						cm.dispose();
                 if ((cm.getParty() != null && 1 < cm.getParty().getMembers().size() && cm.getParty().getMembers().size() < (selection == 4 || selection == 5 || selection == 8 ? 4 : 3)) || cm.getPlayer().isGM()) {
-                    if (checkLevelsAndMap(30, 50) == 1) {
+                    if (checkLevelsAndMap(30, 200) == 1) {
                         cm.sendOk("队伍里有人等级不符合。");
                         cm.dispose();
-                    } else if (checkLevelsAndMap(30, 50) == 2) {
+                    } else if (checkLevelsAndMap(30, 200) == 2) {
                         cm.sendOk("在地图上找不到您的队友。");
                         cm.dispose();
                     }
@@ -53,11 +53,11 @@ function action(mode, type, selection) {
 	} else if (selection >= 0 && selection < 6) {
 	    var mapid = 980000000+((selection+1)*100);
             if (cm.getEventManager("cpq").getInstance("cpq"+mapid) == null) {
-                if ((cm.getParty() != null && 1 < cm.getParty().getMembers().size() && cm.getParty().getMembers().size() < (selection == 4 || selection == 5 || selection == 8 ? 4 : 3)) || cm.getPlayer().isGM()) {
-                    if (checkLevelsAndMap(30, 50) == 1) {
+                if ((cm.getParty() != null && 0 < cm.getParty().getMembers().size() && cm.getParty().getMembers().size() < (selection == 4 || selection == 5 || selection == 8 ? 4 : 3)) || cm.getPlayer().isGM()) {
+                    if (checkLevelsAndMap(30, 200) == 1) {
                         cm.sendOk("队伍里有人等级不符合。");
                         cm.dispose();
-                    } else if (checkLevelsAndMap(30, 50) == 2) {
+                    } else if (checkLevelsAndMap(30, 200) == 2) {
                         cm.sendOk("在地图上找不到您的队友。");
                         cm.dispose();
                     } else {
@@ -68,15 +68,15 @@ function action(mode, type, selection) {
                     cm.sendOk("您的队伍人数不足。");
                 }
             } else if (cm.getParty() != null && cm.getEventManager("cpq").getInstance("cpq"+mapid).getPlayerCount() == cm.getParty().getMembers().size()) {
-                if (checkLevelsAndMap(30, 50) == 1) {
+                if (checkLevelsAndMap(30, 200) == 1) {
                     cm.sendOk("队伍里有人等级不符合。");
                     cm.dispose();
-                } else if (checkLevelsAndMap(30, 50) == 2) {
+                } else if (checkLevelsAndMap(30, 200) == 2) {
                     cm.sendOk("在地图上找不到您的队友。");
                     cm.dispose();
                 } else {
 					var pt = cm.getPlayer().getParty();
-					if (pt.getMembers().size() < 2) {
+					if (pt.getMembers().size() < 1) {
 						cm.sendOk("需要 2 人以上才可以嘉年华！！");
 						cm.dispose();
 					} else {

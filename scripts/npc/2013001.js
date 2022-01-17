@@ -48,7 +48,7 @@ function action(mode, type, selection) {
         }
         break;
     case 920010200: //walkway
-        if (!cm.haveItem(4001050,30)) {
+        if (!cm.haveItem(4001050,1)) {
 		cm.sendOk("我需要#b#t4001050# 30个#k，目前有#c4001050#个。");
 		cm.dispose();
         } else {
@@ -95,8 +95,15 @@ function action(mode, type, selection) {
             total += z;
         }
         if (total < 5) {
-            cm.sendOk("需要5个玩家站在平台上。");
-			cm.dispose();
+//直接go
+          	clear();
+                          cm.gainItem(4001047,1); //fourth
+                          cm.givePartyExp(40000);
+          				em.setProperty("stage4", "1");
+
+
+//            cm.sendOk("需要5个玩家站在平台上。");
+//			cm.dispose();
         } else {
             var num_correct = 0;
             for (var i = 0; i < 3; i++) {
@@ -132,7 +139,7 @@ function action(mode, type, selection) {
         cm.dispose();
         break;
     case 920010600: //lounge
-        if (!cm.haveItem(4001052,40)) {
+        if (!cm.haveItem(4001052,1)) {
 		cm.sendOk("我需要#b#t4001052# 40个#k，目前有#c4001052#个。");
 		cm.dispose();
         } else {
@@ -154,6 +161,14 @@ function action(mode, type, selection) {
             react.push("0");
             }
             }
+
+            //直接过
+                  clear();
+                            cm.gainItem(4001049,1); //sixth
+                            cm.givePartyExp(80000);
+                                em.setProperty("stage6", "1");
+                                break
+
         if (total != 2) {
             cm.sendOk("需要有两个人在顶部回答题目。");
 			cm.dispose();
