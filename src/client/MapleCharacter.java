@@ -5287,6 +5287,16 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
         }
         return ret;
     }
+    public int firstEmpty() {
+        int ret = 0;
+        for (int i = 0; i < 10; i++) {
+            if (rocks[i] == 999999999) {
+                ret=i;
+                break;
+            }
+        }
+        return ret;
+    }
 
     public void deleteFromRocks(int map) {
         for (int i = 0; i < 10; i++) {
@@ -5301,7 +5311,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
         if (getRockSize() >= 10) {
             return;
         }
-        rocks[getRockSize()] = getMapId();
+        rocks[firstEmpty()] = getMapId();
     }
 
     public boolean isRockMap(int id) {

@@ -25,8 +25,14 @@ function action(mode, type, selection) {
              var txt=""
              var c=0
              for(var k=0;k<list.length;k++){
+
                 if(list[k]>0){
-                 txt+="\r\n#L"+k+"# #i"+list[k]+"#   #t"+list[k]+"# \r\n";
+                if(list[k]>1000000000){
+                  txt+="\r\n#L"+k+"# ½ð±Ò \r\n";
+                 }else{
+                   txt+="\r\n#L"+k+"# #i"+list[k]+"#   #t"+list[k]+"# \r\n";
+                 }
+
                  c++;
                 }
              }

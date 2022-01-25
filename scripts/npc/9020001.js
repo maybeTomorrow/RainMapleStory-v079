@@ -1,7 +1,6 @@
 load("nashorn:mozilla_compat.js");
 importPackage(Packages.tools);//加入导包
 importPackage(java.awt);//加入导包
-
 var status;
 var curMap;
 var random = java.lang.Math.floor(Math.random() * 9 + 1);//0~9  +1不为0
@@ -16,9 +15,6 @@ var questions = Array("第一个问题：转职成战士的最低等级是多少？\r\n答案：10个#b\
 var qanswers = Array(10, 35, 20, 25, 25, 15);
 var party;
 var preamble; // we dont even need this mother fucker ! --
-var stage2Rects = Array(Rectangle(-770, -132, 28, 178), Rectangle(-733, -337, 26, 105), Rectangle(-601, -328, 29, 105), Rectangle(-495, -125, 24, 165));
-var stage3Rects = Array(Rectangle(608, -180, 140, 50), Rectangle(791, -117, 140, 45), Rectangle(958, -180, 140, 50), Rectangle(876, -238, 140, 45), Rectangle(702, -238, 140, 45));
-var stage4Rects = Array(Rectangle(910, -236, 35, 5), Rectangle(877, -184, 35, 5), Rectangle(946, -184, 35, 5), Rectangle(845, -132, 35, 5), Rectangle(910, -132, 35, 5), Rectangle(981, -132, 35, 5));
 var stage2combos = Array(Array(0, 1, 1, 1), Array(1, 0, 1, 1), Array(1, 1, 0, 1), Array(1, 1, 1, 0));
 var stage3combos = Array(Array(0, 0, 1, 1, 1), Array(0, 1, 0, 1, 1), Array(0, 1, 1, 0, 1), Array(0, 1, 1, 1, 0), Array(1, 0, 0, 1, 1), Array(1, 0, 1, 0, 1), Array(1, 0, 1, 1, 0), Array(1, 1, 0, 0, 1), Array(1, 1, 0, 1, 0), Array(1, 1, 1, 0, 0));
 var stage4combos = Array(Array(0, 0, 0, 1, 1, 1), Array(0, 0, 1, 0, 1, 1), Array(0, 0, 1, 1, 0, 1), Array(0, 0, 1, 1, 1, 0), Array(0, 1, 0, 0, 1, 1), Array(0, 1, 0, 1, 0, 1), Array(0, 1, 0, 1, 1, 0), Array(0, 1, 1, 0, 0, 1), Array(0, 1, 1, 0, 1, 0), Array(0, 1, 1, 1, 0, 0), Array(1, 0, 0, 0, 1, 1), Array(1, 0, 0, 1, 0, 1), Array(1, 0, 0, 1, 1, 0), Array(1, 0, 1, 0, 0, 1), Array(1, 0, 1, 0, 1, 0), Array(1, 0, 1, 1, 0, 0), Array(1, 1, 0, 0, 0, 1), Array(1, 1, 0, 0, 1, 0), Array(1, 1, 0, 1, 0, 0), Array(1, 1, 1, 0, 0, 0));
@@ -50,6 +46,10 @@ function start() {
 }
 
 function action(mode, type, selection) {
+
+
+
+
     if (mode == 1) {
         status++;
     } else if (type == 0 && mode == 0)
@@ -135,7 +135,7 @@ function action(mode, type, selection) {
             }
         } // End first map scripts
     } else if (2 <= curMap && 4 >= curMap) {
-        rectanglestages(cm);
+         Rectanglestages(cm);
     } else if (curMap == 5) { // Final stage
         var eim = cm.getPlayer().getEventInstance();
         var stage5done = eim.getProperty("5stageclear");
@@ -200,15 +200,20 @@ function failstage(eim, cm) {
     // map.broadcastMessage(MaplePacketCreator.playSound("Party1/Failed"));
 }
 
-function rectanglestages(cm) {
+function  Rectanglestages(cm) {
     var eim = cm.getPlayer().getEventInstance();
     var nthtext;
     var nthobj;
     var nthverb;
     var nthpos;
-    var curArray;
+    var curArray=[];
     var curCombo;
     var objset;
+var stage2Rects = Array(new Rectangle(-770, -132, 28, 178), new Rectangle(-733, -337, 26, 105), new Rectangle(-601, -328, 29, 105), new Rectangle(-495, -125, 24, 165));
+var stage3Rects = Array(new Rectangle(608, -180, 140, 50), new Rectangle(791, -117, 140, 45), new Rectangle(958, -180, 140, 50), new Rectangle(876, -238, 140, 45), new Rectangle(702, -238, 140, 45));
+var stage4Rects = Array(new Rectangle(910, -236, 35, 5), new Rectangle(877, -184, 35, 5), new Rectangle(946, -184, 35, 5), new Rectangle(845, -132, 35, 5), new Rectangle(910, -132, 35, 5), new Rectangle(981, -132, 35, 5));
+
+
     if (curMap == 2) {
         nthtext = "2nd";
         nthobj = "ropes";
@@ -239,7 +244,7 @@ function rectanglestages(cm) {
             party = eim.getPlayers();
             preamble = eim.getProperty("leader" + nthtext + "preamble");
             if (preamble == null) { // first time talking.
-                cm.sendNext("欢迎来到第 " + nthtext + " stage. Next to me, you'll see a number of " + nthobj + ". Out of these " + nthobj + ", #b3 are connected to the portal that sends you to the next stage#k. All you need to do is have #b3 party members find the correct " + nthobj + " and " + nthverb + " on them.#k\r\nBUT, it doesn't count as an answer if you " + nthpos + "; please be near the middle of the " + nthobj + " to be counted as a correct answer. Also, only 3 members of your party are allowed on the " + nthobj + ". Once they are " + nthverb + "ing on them, the leader of the party must #bdouble-click me to check and see if the answer's correct or not#k. Now, find the right " + nthobj + " to " + nthverb + " on!");
+                cm.sendNext("欢迎来到第 " + nthtext + " 关. 接下来, 你将会看到一个数字 " + nthobj + ".从这些数字 " + nthobj + ", #b3 其中一个连接到将您发送到下一阶段的门户#k. 你所需要做的就是让 #b3 名队员找到正确的答案 " + nthobj + " and " + nthverb + " on them.#k\r\n但你并不算回答 " + nthpos + "; 请站在中间 " + nthobj + " 来算正确回答. 只有三名成员允许 " + nthobj + ". Once they are " + nthverb + "ing on them, 站好后队长 #bdouble-click 我判断回答是否正确#k. Now, find the right " + nthobj + " to " + nthverb + " on!");
                 eim.setProperty("leader" + nthtext + "preamble", "done");
                 var sequenceNum = Math.floor(Math.random() * curCombo.length);
                 eim.setProperty("stage" + nthtext + "combo", sequenceNum.toString());
@@ -261,12 +266,15 @@ function rectanglestages(cm) {
                         }
                     }
                     // if (playersOnCombo == 3 || cm.getPlayer().gmLevel() > 0) {
-                    if (playersOnCombo == 3) {
+                    if (playersOnCombo == 1) {
+
                         var combo = curCombo[parseInt(eim.getProperty("stage" + nthtext + "combo"))];
                         var correctCombo = true;
-                        for (i = 0; i < objset.length && correctCombo; i++)
-                            if (combo[i] != objset[i])
-                                correctCombo = false;
+
+//直接过
+//                        for (i = 0; i < objset.length && correctCombo; i++)
+//                            if (combo[i] != objset[i])
+//                                correctCombo = false;
                         //  if (correctCombo || cm.getPlayer().gmLevel() > 0) {
                         if (correctCombo) {
                             clear(curMap, eim, cm);
@@ -335,9 +343,9 @@ function getPrize(eim, cm) {
     if (hasQty)
         qty = itemSetQty[sel];
     cm.gainItem(itemSet[sel], qty);
-    cm.给组队物品(4002000, 1);//奖励物品 蜗牛邮票
-    cm.给予组队物品队长双倍(4031456, 1, false);//奖励物品 枫叶珠
-    cm.给予组队物品队长双倍(4031311, 1, false);//4031311 雪花
+    cm.gainItem(4002000, 1);//奖励物品 蜗牛邮票
+    cm.gainItem(4031456, 1, false);//奖励物品 枫叶珠
+    cm.gainItem(4031311, 1, false);//4031311 雪花
    /* if (random <= 2 && random >= 1) {//控制出现奖励抵用卷的几率
         cm.gainDY(random2);
         if (cm.isLeader()) {

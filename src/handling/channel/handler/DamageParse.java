@@ -964,7 +964,7 @@ public class DamageParse {
     }
 
     private static void handlePickPocket(final MapleCharacter player, final MapleMonster mob, AttackPair oned) {
-        int maxmeso = player.getBuffedValue(MapleBuffStat.PICKPOCKET);
+        int maxmeso = player.getBuffedValue(MapleBuffStat.PICKPOCKET) * player.getDropMod();
         final ISkill skill = SkillFactory.getSkill(4211003);
         final MapleStatEffect s = skill.getEffect(player.getSkillLevel(skill));
         for (Pair eachde : oned.attack) {

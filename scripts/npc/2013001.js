@@ -19,9 +19,9 @@ function action(mode, type, selection) {
     return;
     }
      if (em.getProperty("pre").equals("0")) {
-		if(cm.getPlayer().haveItem(4001063, 20) && cm.getPlayer().getMapId() == 920010000) {
+		if(cm.getPlayer().haveItem(4001063, 1) && cm.getPlayer().getMapId() == 920010000) {
 			cm.givePartyExp(6000);
-			cm.gainItem(4001063, -20);
+			cm.gainItem(4001063, -1);
 			em.setProperty("pre", "1");
 		} else{
 			cm.sendNext("我被远古精灵困在这座塔，快收集材料让我出去。");
@@ -36,6 +36,7 @@ function action(mode, type, selection) {
         break;
     case 920010100:
         if (em.getProperty("stage").equals("6")) {
+//        if (cm.haveItem(4001044,1)&&cm.haveItem(4001045)&&cm.haveItem(4001046)&&cm.haveItem(4001047)&&cm.haveItem(4001048)&&cm.haveItem(4001049)) {
         if (em.getProperty("finished").equals("0")) {
             cm.warpParty(920010800); //GARDEN.  
         } else {
@@ -59,7 +60,7 @@ function action(mode, type, selection) {
         }
         break;
     case 920010300: //storage
-        if (!cm.haveItem(4001051,15)) {
+        if (!cm.haveItem(4001051,1)) {
         cm.sendOk("我需要#b#t4001051# 15个#k，目前有#c4001051#个。");
 		cm.dispose();
         } else {
@@ -94,16 +95,13 @@ function action(mode, type, selection) {
             players.push(z);
             total += z;
         }
-        if (total < 5) {
+        if (total >0) {
 //直接go
-          	clear();
-                          cm.gainItem(4001047,1); //fourth
-                          cm.givePartyExp(40000);
-          				em.setProperty("stage4", "1");
 
 
-//            cm.sendOk("需要5个玩家站在平台上。");
-//			cm.dispose();
+
+            cm.sendOk("需要5个玩家站在平台上。");
+			cm.dispose();
         } else {
             var num_correct = 0;
             for (var i = 0; i < 3; i++) {
@@ -111,7 +109,7 @@ function action(mode, type, selection) {
                 num_correct++;
             }
             }
-            if (num_correct == 3) {
+            if (num_correct > 0) {
             if (cm.canHold(4001047,1)) {
 				clear();
                 cm.gainItem(4001047,1); //fourth
@@ -163,13 +161,9 @@ function action(mode, type, selection) {
             }
 
             //直接过
-                  clear();
-                            cm.gainItem(4001049,1); //sixth
-                            cm.givePartyExp(80000);
-                                em.setProperty("stage6", "1");
-                                break
 
-        if (total != 2) {
+
+        if (total) {
             cm.sendOk("需要有两个人在顶部回答题目。");
 			cm.dispose();
         } else {
@@ -179,7 +173,8 @@ function action(mode, type, selection) {
                 num_correct++;
             }
             }
-            if (num_correct == 5) {
+            //直接过
+            if (num_correct >0 ) {
             if (cm.canHold(4001049,1)) {
                     clear();
                 cm.gainItem(4001049,1); //sixth
