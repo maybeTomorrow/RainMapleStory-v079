@@ -333,7 +333,14 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         lastMsg = 0xC;
     }
 
-    public void askAvatar(String text, int... args) {
+    public void askAvatar(String text, int[] args) {
+        if (lastMsg > -1) {
+            return;
+        }
+        c.sendPacket(MaplePacketCreator.getNPCTalkStyle(npc, text, args));
+        lastMsg = 7;
+    }
+    public void askAvatar(String text,int id, int[] args) {
         if (lastMsg > -1) {
             return;
         }
@@ -431,7 +438,7 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         getPlayer().equipChanged();
     }
 
-    public int setRandomAvatar(int ticket, int... args_all) {
+    public int setRandomAvatar(int ticket, int[] args_all) {
         if (!haveItem(ticket)) {
             return -1;
         }

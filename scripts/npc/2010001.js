@@ -14,7 +14,8 @@ function action(mode, type, selection) {
     }
 
     if (status == 0) {
-	cm.sendSimple("我是米努. 如果你有 #b#t5150005##k \r\n或者 #b#t5151005##k 任何机会，\r\n那么怎么样让我改变你的发型颜色?\r\n#L0#使用 #b#t5150005##k\r\n#L1#使用 #b#t5151005##k");
+	cm.sendSimple("我是米努. 如果你有 #b#t5150005##k \r\n或者 #b#t5151005##k 任何机会，\r\n那么怎么样让我改变你的发型颜色?\r\n#L0#使用 #i5150005##t5150005##l\r\n#L1#使用 #i5151005##t5151005##l");
+//	cm.sendSimple("我是米努. #b#t5150005##k or #b#t5151005##k 嘛?如果是这样，您考虑让我如何把你的头发护理？ 你想要怎样护理你的头发? \r\n#L0#使用: #i5150004##t5150004##l \r\n#L1#使用: #i5151004##t5151004##l");
     } else if (status == 1) {
 	if (selection == 0) {
 	    var hair = cm.getPlayerStat("HAIR");
@@ -29,6 +30,7 @@ function action(mode, type, selection) {
 	    for (var i = 0; i < hair_Colo_new.length; i++) {
 		hair_Colo_new[i] = hair_Colo_new[i] + (hair % 10);
 	    }
+//	    cm.sendSimple("haode?");
 	    cm.askAvatar("选择一个喜欢的~",5150005, hair_Colo_new);
 	} else if (selection == 1) {
 	    var currenthaircolo = Math.floor((cm.getPlayerStat("HAIR") / 10)) * 10;
