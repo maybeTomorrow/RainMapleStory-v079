@@ -35,7 +35,7 @@ var sss ="#fUI/UIWindow.img/QuestIcon/3/0#";
 
 		textz += "#d#L2#收集#v4000172##b#z4000172##r 100 #d个可兑换#r#v4000313#10张\r\n";
 
-		textz += "#d#L3#收集#v4031029##b#z4031029##r 100 #d个可兑#r#v4000313#10张\r\n";
+		textz += "#d#L3#收集#v4000294##b#z4000294##r 100 #d个可兑#r#v4000313#10张\r\n";
 
 		textz += "#d#L4#收集#v4000115##b#z4000115##r 100 #d个可兑换#r#v4032226#10只\r\n";
 
@@ -44,6 +44,8 @@ var sss ="#fUI/UIWindow.img/QuestIcon/3/0#";
 		textz += "#d#L6#收集#v4000052##b#z4000052##r 100 #d个可兑换#r#v4032226#10只\r\n";
 
 		textz += "#d#L7#收集#v4000190##b#z4000190##r 100 #d个可兑换#r#v4032226#10只\r\n";
+
+		textz += "#d#L8#去里恩\r\n";
 
 		//textz += "#d#L8#收集#v4001085##b#z4001085##r 1 #d个\r\n  可兑换#r1000点#d卷#l\r\n";
 
@@ -55,7 +57,15 @@ var sss ="#fUI/UIWindow.img/QuestIcon/3/0#";
 			
 	}else if (status == 1) {
 
-	if (selection == 0) {
+	if(selection==8){
+
+	  cm.warp(140020300);
+
+    	    cm.dispose();
+
+	}
+
+	else if (selection == 0) {
 if (cm.haveItem(4000014,100) && cm.getBossLog('PlayQuest1') < 1) {
 cm.dispose();
 
@@ -99,8 +109,8 @@ cm.dispose();
 		cm.dispose();
 
 }else if (selection == 3){
-	if (cm.haveItem(4031029,100) && cm.getBossLog('PlayQuest4') < 1) {
-		cm.gainItem(4031029,-100);
+	if (cm.haveItem(4000294,100) && cm.getBossLog('PlayQuest4') < 1) {
+		cm.gainItem(4000294,-100);
 		cm.setBossLog('PlayQuest4');
 		cm.gainItem(4000313,10);
                 cm.gainExp( + 100000);

@@ -8,5 +8,6 @@ function start() {
 }
 
 function action() {
+ cm.sendOk ("oo?");
     cm.dispose()
 }

@@ -31,7 +31,7 @@ function action(mode, type, selection) {
                   }else if(selection == 2){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛单手剑.");
-                cm.gainItem(1302192,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1302192,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛单手剑！！");
                 cm.dispose();		
@@ -42,7 +42,7 @@ function action(mode, type, selection) {
                   }else if(selection == 3){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛单手斧.");
-                cm.gainItem(1312098,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1312098,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛单手斧！！");
                 cm.dispose();		
@@ -53,7 +53,7 @@ function action(mode, type, selection) {
                   }else if(selection == 4){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛单手钝器.");
-                cm.gainItem(1322138,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1322138,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛单手钝器！！");
                 cm.dispose();		
@@ -64,7 +64,7 @@ function action(mode, type, selection) {
                   }else if(selection == 5){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛短刀.");
-                cm.gainItem(1332168,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1332168,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛短刀！！");
                 cm.dispose();		
@@ -75,7 +75,7 @@ function action(mode, type, selection) {
                   }else if(selection == 6){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛短杖.");
-                cm.gainItem(1372117,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1372117,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛短杖！！");
                 cm.dispose();		
@@ -86,7 +86,7 @@ function action(mode, type, selection) {
                   }else if(selection == 7){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛枪.");
-                cm.gainItem(1432117,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1432117,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛枪！！");
                 cm.dispose();		
@@ -97,7 +97,7 @@ function action(mode, type, selection) {
                   }else if(selection == 8){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛弓.");
-                cm.gainItem(1452147,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1452147,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛弓！！");
                 cm.dispose();		
@@ -108,7 +108,7 @@ function action(mode, type, selection) {
                   }else if(selection == 9){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛弩.");
-                cm.gainItem(1462136,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1462136,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛弩！！");
                 cm.dispose();		
@@ -119,7 +119,7 @@ function action(mode, type, selection) {
                   }else if(selection == 10){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛拳套.");
-                cm.gainItem(1472159,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1472159,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛拳套！！");
                 cm.dispose();		
@@ -130,7 +130,7 @@ function action(mode, type, selection) {
                   }else if(selection == 11){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛指节.");
-                cm.gainItem(1482120,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1482120,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛指节！！");
                 cm.dispose();		
@@ -141,7 +141,7 @@ function action(mode, type, selection) {
                   }else if(selection == 12){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛手枪.");
-                cm.gainItem(1492119,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1492119,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛手枪！！");
                 cm.dispose();		
@@ -152,7 +152,7 @@ function action(mode, type, selection) {
                   }else if(selection == 13){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛双手剑.");
-                cm.gainItem(1402129,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1402129,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛双手剑！！");
                 cm.dispose();		
@@ -163,7 +163,7 @@ function action(mode, type, selection) {
                   }else if(selection == 14){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛双手斧.");
-                cm.gainItem(1412087,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1412087,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛双手斧！！");
                 cm.dispose();		
@@ -174,7 +174,7 @@ function action(mode, type, selection) {
                   }else if(selection == 15){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛双手钝器.");
-                cm.gainItem(1422089,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1422089,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛双手钝器！！");
                 cm.dispose();		
@@ -185,7 +185,7 @@ function action(mode, type, selection) {
                   }else if(selection == 16){ 	           
                 if (cm.haveItem(4000313,500)){
                 cm.sendOk("#r#e恭喜您获得全属性300的传说冒险岛矛.");
-                cm.gainItem(1442154,300,300,300,300,300,300,300,300,150,150,150,150,0,0,0,0,0);
+                cm.gainItem(1442154,300,300,300,300,300,300,300,300,150,150,150,150);
                 cm.gainItem(4000313,-500);
                 cm.喇叭(3,"厉害了word哥！！恭喜您获得了全属性300的传说冒险岛矛！！");
                 cm.dispose();		

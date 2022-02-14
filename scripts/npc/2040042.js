@@ -19,7 +19,7 @@ function action(mode, type, selection) {
 	    var stage7leader = eim.getProperty("stage7leader");
 	    if (stage7leader == "done") {
 
-		if (cm.haveItem(4001022,3)) { // Clear stage
+		if (cm.haveItem(4001022,1)) { // Clear stage
 		    cm.sendNext("恭喜！你已经通过了第七阶段。快点现在，到第8阶段。");
 		    cm.removeAll(4001022);
 		    clear(7, eim, cm);

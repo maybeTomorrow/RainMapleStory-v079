@@ -690,7 +690,49 @@ public abstract class AbstractPlayerInteraction {
         }
         cg.sendPacket(MaplePacketCreator.getShowItemGain(id, quantity, true));
     }
+    public final void gainItem(final int id, final short str, final short dex, final short ints, final short luk,
+                               final short hp,final short mp,final short matk,final short watk,final short acc,final short dds,
+                               final short ccd,final short ffd){
+        gainItem(id,str,dex,ints,luk,hp,mp,matk,watk,acc,dds,ccd,ffd,c);
+    }
+    public final void gainItem(final int id, final short str, final short dex, final short ints, final short luk,
+                               final short hp,final short mp,final short matk,final short watk,final short acc,final short dds,
+                               final short ccd,final short ffd,final MapleClient cg) {
 
+         short quantity=1;
+            final MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
+            final MapleInventoryType type = GameConstants.getInventoryType(id);
+
+            if (!MapleInventoryManipulator.checkSpace(cg, id, quantity, "")) {
+
+                return;
+            }
+            boolean randomStats=true;
+            if (type.equals(MapleInventoryType.EQUIP) && !GameConstants.isThrowingStar(id) && !GameConstants.isBullet(id)) {
+                final Equip item = (Equip) (randomStats ? ii.randomizeStats((Equip) ii.getEquipById(id)) : ii.getEquipById(id));
+
+
+                item.setStr(str);
+                item.setDex(dex);
+                item.setInt(ints);
+                item.setLuk(luk);
+                item.setHp(hp);
+                item.setMp(mp);
+                item.setMatk(matk);
+                item.setWatk(watk);
+                item.setWdef(acc);
+                item.setMdef(dds);
+                item.setAcc(ccd);
+                item.setAvoid(ffd);
+
+
+                MapleInventoryManipulator.addbyItem(cg, item.copy());
+            } else {
+
+            }
+
+        cg.sendPacket(MaplePacketCreator.getShowItemGain(id, quantity, true));
+    }
     public final void changeMusic(final String songName) {
         getPlayer().getMap().broadcastMessage(MaplePacketCreator.musicChange(songName));
     }

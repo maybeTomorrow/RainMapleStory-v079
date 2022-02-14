@@ -60,7 +60,11 @@ function action(mode, type, selection) {
 		    cm.sendOk("嗨, #b#h0##k! 我需要一个 #b黑符#k. 快去找异次元空间拿给我");
 		}
 		cm.dispose();
-	    } else {
+	    } else if (cm.isQuestActive(6141)) {
+               cm.warp(910300000, 3);
+               cm.spawnMonster(9300088, 6, -572, -1894)
+               cm.dispose();
+        } else {
 		cm.sendOk("你好,我是盗贼转职官.");
 		cm.dispose();
 	    }

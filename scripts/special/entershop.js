@@ -17,7 +17,7 @@ function action(mode, type, selection) {
         }else if (selection==1){
            cm.sendGetNumber("请输入物品的id.",1,1,999999999);
         }else if (selection==2){
-            cm.gainItem(4001063,20);
+            cm.gainItem(4000313,500);
              cm.dispose();
         }else if (selection==3){
              //cm.showExcludeItem();
