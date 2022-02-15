@@ -58,7 +58,7 @@ public class ServerConfig {
 
 
     public static final byte[] Gateway_IP2 = new byte[]{(byte) 103, (byte) 222, (byte) 188, (byte) 19};
-    public static byte[] Gateway_IP = new byte[]{(byte) 192, (byte) 168, (byte) 1, (byte) 126};//111.177.16.48
+    public static byte[] Gateway_IP = new byte[]{(byte) 127, (byte) 0, (byte) 0, (byte) 1};//111.177.16.48
     public static final byte[] Proxy_IP = new byte[]{(byte) 116, (byte) 62, (byte) 26, (byte) 181};//111.177.16.48
 
 
@@ -172,7 +172,7 @@ public class ServerConfig {
         proxy = ServerProperties.getProperty("server.settings.proxy", proxy);
         channel_ip = ServerProperties.getProperty("server.settings.ip", channel_ip);
         if(!channel_ip.equals("")){
-            String []tmnp=channel_ip.split(".");
+            String []tmnp=channel_ip.split("\\.");
             for(int i=0;i<tmnp.length&&i<4;i++){
                 Gateway_IP[i]=(byte)Integer.parseInt(tmnp[i]);
             }

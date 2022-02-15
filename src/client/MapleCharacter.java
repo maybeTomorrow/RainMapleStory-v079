@@ -5768,8 +5768,10 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
 
     public int getEXPMod() {
         //等级差经验
-        if (getLevel() > 140){
-            return  stats.expMod * 18;
+        if (getLevel() > 150){
+            return  stats.expMod * 24;
+        }else if (getLevel() > 140){
+            return  stats.expMod * 20;
         }else if (getLevel() > 130){
             return  stats.expMod * 16;
         }else if (getLevel() > 120){

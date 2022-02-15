@@ -21,7 +21,16 @@ function start() {
 		cm.sendOk("发生未知错误.");
 	    }
 	}
-    } else {
+    }else if(cm.getQuestStatus(7105) == 2){
+           if(cm.haveItem(4031179)){
+              cm.sendOk("你已经有碎片d了")
+           }else{
+           cm.gainItem(4031179,1);
+           cm.sendOk("给你一个碎片d")
+           }
+
+              cm.dispose();
+         } else {
 	cm.sendOk("你似乎没有理由满足我.");
     }
     cm.dispose();
