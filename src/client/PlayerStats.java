@@ -926,11 +926,11 @@ public class PlayerStats implements Serializable {
         final MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
         List<Equip> all = new ArrayList<>(equipLevelHandling);
         for (Equip eq : all) {
-            int lvlz = eq.getEquipLevel();
-            eq.setItemEXP(Math.min(eq.getItemEXP() + gain, Integer.MAX_VALUE));
+            int lvlz = eq.getExpPercentage();
+            eq.setItemEXP(Math.min(eq.getItemEXP() + 1, Integer.MAX_VALUE));
 
-            if (eq.getEquipLevel() > lvlz) { //lvlup
-                for (int i = eq.getEquipLevel() - lvlz; i > 0; i--) {
+            if (eq.getExpPercentage() > lvlz) { //lvlup
+                for (int i = eq.getExpPercentage() - lvlz; i > 0; i--) {
                     //now for the equipment increments...
                     final Map<Integer, Map<String, Integer>> inc = ii.getEquipIncrements(eq.getItemId());
                     if (inc != null && inc.containsKey(lvlz + i)) { //flair = 1

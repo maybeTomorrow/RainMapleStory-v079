@@ -421,6 +421,7 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
     }
 
     public void setHair(int hair) {
+        getPlayer();
         getPlayer().setHair(hair);
         getPlayer().updateSingleStat(MapleStat.HAIR, hair);
         getPlayer().equipChanged();
@@ -2778,6 +2779,18 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
                 c.sendPacket(UIPacket.getTopMsg(message));
             }
         }
+    }
+
+
+    public Map<String,Object> equipStat(short dst) {
+        Equip item = (Equip)getPlayer().getInventory(MapleInventoryType.EQUIPPED).getItem(dst);
+        Map<String,Object> a=new HashMap<String,Object>();
+        a.put("item_exp",item.getItemEXP());
+        a.put("equip_level",item.getEquipLevel());
+        a.put("equip_exp_for",item.getEquipExpForLevel());
+        a.put("lvl_up_need",GameConstants.getExpForLevel(item.getEquipLevel(), item.getItemId()));
+        a.put("equip_percentage",item.getExpPercentage());
+        return a;
     }
 
     public void 加运气(int luk) {

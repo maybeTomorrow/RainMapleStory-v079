@@ -109,7 +109,7 @@ public class MapConstants {
         }
         return false;
     }
-
+//回转生倍率
     public static int isMonsterSpawn(MapleMap map) { //回傳生怪數量倍率
         if (MapConstants.isBossMap(map.getId()) || MapConstants.isEventMap(map.getId())) {
             return 1;
@@ -153,6 +153,10 @@ public class MapConstants {
             case 104010001://  猪猪海岸
             case 220070400://  怪异时间
                 return 3;
+            case 910200000://  	未公开的遗迹
+            case 910200001:
+            case 910200002:
+                return 1;
         }
         return 2;
     }

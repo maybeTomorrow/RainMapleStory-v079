@@ -408,8 +408,9 @@ public class PacketHelper {
                 mplew.writeMapleAsciiString(equip.getOwner());
                 mplew.writeShort(equip.getFlag());
                 mplew.write(0);
+//                mplew.write(Math.max(equip.getBaseLevel(), equip.getEquipLevel())); // Item level
                 mplew.write(Math.max(equip.getBaseLevel(), equip.getEquipLevel())); // Item level
-                mplew.writeInt(equip.getExpPercentage() * 100000); // Item Exp... 10000000 = 100%
+                mplew.writeInt(equip.getExpPercentage()/100*30000000); // Item Exp... 10000000 = 100%
                 mplew.writeInt(equip.getViciousHammer());
                 if (!hasUniqueId) {
                     mplew.writeLong(item.getUniqueId()); //some tracking ID

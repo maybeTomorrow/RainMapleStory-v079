@@ -1009,15 +1009,15 @@ public class DamageParse {
                     defined = true;
                     break;
                 case SkillType.神射手.必殺狙擊: // Sniping
-                    maximumDamageToMonster = (monster.getStats().isBoss() ? 500000 : monster.getMobMaxHp());
+                    maximumDamageToMonster = (monster.getStats().isBoss() ? 1000000 : monster.getMobMaxHp());
                     defined = true;
                     break;
                 case SkillType.聖騎士.鬼神之擊://Heavens Hammer
-                    maximumDamageToMonster = (monster.getStats().isBoss() ? 500000 : monster.getHp() - 1);
+                    maximumDamageToMonster = (monster.getStats().isBoss() ? 1000000 : monster.getHp() - 1);
                     defined = true;
                     break;
                 case SkillType.神偷.楓幣炸彈: // Meso Explosion
-                    maximumDamageToMonster = (monster.getStats().isBoss() ? 500000 : monster.getMobMaxHp());
+                    maximumDamageToMonster = (monster.getStats().isBoss() ? 1000000 : monster.getMobMaxHp());
                     defined = true;
                     break;
                 case 1009: // Bamboo Trust

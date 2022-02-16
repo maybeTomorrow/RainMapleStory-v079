@@ -313,9 +313,9 @@ public class Equip extends Item implements IEquip, Serializable {
         }
         //aproximate value
         if (GameConstants.isWeapon(getItemId())) {
-            return itemEXP / IEquip.WEAPON_RATIO;
+            return itemEXP ;
         } else {
-            return itemEXP / IEquip.ARMOR_RATIO;
+            return itemEXP ;
         }
     }
 
@@ -337,10 +337,31 @@ public class Equip extends Item implements IEquip, Serializable {
 
     @Override
     public int getExpPercentage() {
-        if (getEquipLevel() < getBaseLevel() || getEquipLevel() > GameConstants.getMaxLevel(getItemId()) || GameConstants.getExpForLevel(getEquipLevel(), getItemId()) <= 0) {
+//        if (getEquipLevel() < getBaseLevel() || getEquipLevel() > GameConstants.getMaxLevel(getItemId()) || GameConstants.getExpForLevel(getEquipLevel(), getItemId()) <= 0) {
+//            return 0;
+//        }
+//        return getEquipExpForLevel() * 100 / GameConstants.getExpForLevel(getEquipLevel(), getItemId());
+        return getTrueLevel()%100;
+    }
+
+
+    public int getTrueLevel(){
+        if (GameConstants.getMaxLevel(getItemId()) <= 0) {
             return 0;
+        } else if (getEquipExp() <= 0) {
+            return getBaseLevel();
         }
-        return getEquipExpForLevel() * 100 / GameConstants.getExpForLevel(getEquipLevel(), getItemId());
+        int levelz = getBaseLevel();
+        int expz = getEquipExp();
+        for (int i = levelz; (GameConstants.getStatFromWeapon(getItemId()) == null ? (i <= GameConstants.getMaxLevel(getItemId())) : (i < GameConstants.getMaxLevel(getItemId()))); i++) {
+            if (expz >= GameConstants.getExpForLevel(i, getItemId())) {
+                levelz++;
+                expz -= GameConstants.getExpForLevel(i, getItemId());
+            } else { //for 0, dont continue;
+                break;
+            }
+        }
+        return levelz;
     }
 
     @Override
@@ -360,7 +381,8 @@ public class Equip extends Item implements IEquip, Serializable {
                 break;
             }
         }
-        return levelz;
+        levelz=levelz/100;
+        return levelz>0?levelz:getBaseLevel();
     }
 
     @Override

@@ -1659,7 +1659,7 @@ public class GameConstants {
 
     public static int getMaxLevel(final int itemId) {
         if (isTimelessItem(itemId)) {
-            return 100;
+            return 5;
         } else if (isReverseItem(itemId)) {
             return 3;
         } else {
