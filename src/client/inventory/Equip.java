@@ -349,9 +349,9 @@ public class Equip extends Item implements IEquip, Serializable {
         if (GameConstants.getMaxLevel(getItemId()) <= 0) {
             return 0;
         } else if (getEquipExp() <= 0) {
-            return getBaseLevel();
+            return 0;
         }
-        int levelz = getBaseLevel();
+        int levelz = 0;
         int expz = getEquipExp();
         for (int i = levelz; (GameConstants.getStatFromWeapon(getItemId()) == null ? (i <= GameConstants.getMaxLevel(getItemId())) : (i < GameConstants.getMaxLevel(getItemId()))); i++) {
             if (expz >= GameConstants.getExpForLevel(i, getItemId())) {
@@ -371,16 +371,16 @@ public class Equip extends Item implements IEquip, Serializable {
         } else if (getEquipExp() <= 0) {
             return getBaseLevel();
         }
-        int levelz = getBaseLevel();
-        int expz = getEquipExp();
-        for (int i = levelz; (GameConstants.getStatFromWeapon(getItemId()) == null ? (i <= GameConstants.getMaxLevel(getItemId())) : (i < GameConstants.getMaxLevel(getItemId()))); i++) {
-            if (expz >= GameConstants.getExpForLevel(i, getItemId())) {
-                levelz++;
-                expz -= GameConstants.getExpForLevel(i, getItemId());
-            } else { //for 0, dont continue;
-                break;
-            }
-        }
+        int levelz = getTrueLevel();
+//        int expz = getEquipExp();
+//        for (int i = levelz; (GameConstants.getStatFromWeapon(getItemId()) == null ? (i <= GameConstants.getMaxLevel(getItemId())) : (i < GameConstants.getMaxLevel(getItemId()))); i++) {
+//            if (expz >= GameConstants.getExpForLevel(i, getItemId())) {
+//                levelz++;
+//                expz -= GameConstants.getExpForLevel(i, getItemId());
+//            } else { //for 0, dont continue;
+//                break;
+//            }
+//        }
         levelz=levelz/100;
         return levelz>0?levelz:getBaseLevel();
     }

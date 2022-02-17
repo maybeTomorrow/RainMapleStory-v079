@@ -2788,7 +2788,7 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         a.put("item_exp",item.getItemEXP());
         a.put("equip_level",item.getEquipLevel());
         a.put("equip_exp_for",item.getEquipExpForLevel());
-        a.put("lvl_up_need",GameConstants.getExpForLevel(item.getEquipLevel(), item.getItemId()));
+        a.put("lvl_up_need",GameConstants.getExpForLevel(item.getTrueLevel(), item.getItemId()));
         a.put("equip_percentage",item.getExpPercentage());
         return a;
     }
