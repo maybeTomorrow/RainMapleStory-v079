@@ -922,20 +922,25 @@ public class PlayerStats implements Serializable {
     }
 
     public boolean checkEquipLevels(final MapleCharacter chr, int gain) {
+        gain=gain/100000;
+        gain=gain==0?1:gain;
+        gain=gain>100?100:gain;
         boolean changed = false;
         final MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
         List<Equip> all = new ArrayList<>(equipLevelHandling);
         for (Equip eq : all) {
             int lvlz = eq.getTrueLevel();
-            eq.setItemEXP(Math.min(eq.getItemEXP() + 1, Integer.MAX_VALUE));
+
+            eq.setItemEXP(Math.min(eq.getItemEXP() + gain, Integer.MAX_VALUE));
 
             if (eq.getTrueLevel() > lvlz) { //lvlup
                 for (int i = eq.getTrueLevel() - lvlz; i > 0; i--) {
                     //now for the equipment increments...
                     final Map<Integer, Map<String, Integer>> inc = ii.getEquipIncrements(eq.getItemId());
-                    if (inc != null && inc.containsKey(lvlz + i)) { //flair = 1
-                        eq = ii.levelUpEquip(eq, inc.get(lvlz + i));
+                    if (inc != null && inc.size()>0) { //flair = 1
+                            eq = ii.levelUpEquip(eq, inc.get((lvlz + i)%inc.size()+1));
                     }
+
                     //UGH, skillz
                     if (GameConstants.getStatFromWeapon(eq.getItemId()) == null) {
                         final Map<Integer, List<Integer>> ins = ii.getEquipSkills(eq.getItemId());

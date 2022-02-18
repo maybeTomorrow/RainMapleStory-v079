@@ -325,7 +325,7 @@ public class Equip extends Item implements IEquip, Serializable {
             return 0;
         }
         int expz = getEquipExp();
-        for (int i = getBaseLevel(); i <= GameConstants.getMaxLevel(getItemId()); i++) {
+        for (int i = getBaseLevel(); i <= Integer.MAX_VALUE; i++) {
             if (expz >= GameConstants.getExpForLevel(i, getItemId())) {
                 expz -= GameConstants.getExpForLevel(i, getItemId());
             } else { //for 0, dont continue;
@@ -353,7 +353,7 @@ public class Equip extends Item implements IEquip, Serializable {
         }
         int levelz = 0;
         int expz = getEquipExp();
-        for (int i = levelz; (GameConstants.getStatFromWeapon(getItemId()) == null ? (i <= GameConstants.getMaxLevel(getItemId())) : (i < GameConstants.getMaxLevel(getItemId()))); i++) {
+        for (int i = levelz; i<Integer.MAX_VALUE; i++) {
             if (expz >= GameConstants.getExpForLevel(i, getItemId())) {
                 levelz++;
                 expz -= GameConstants.getExpForLevel(i, getItemId());
