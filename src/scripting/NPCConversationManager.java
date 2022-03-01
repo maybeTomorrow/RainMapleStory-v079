@@ -2787,6 +2787,7 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         Map<String,Object> a=new HashMap<String,Object>();
         a.put("item_exp",item.getItemEXP());
         a.put("equip_level",item.getEquipLevel());
+        a.put("true_level",item.getTrueLevel());
         a.put("equip_exp_for",item.getEquipExpForLevel());
         a.put("lvl_up_need",GameConstants.getExpForLevel(item.getTrueLevel(), item.getItemId()));
         a.put("equip_percentage",item.getExpPercentage());

@@ -13,7 +13,7 @@ function start() {
     } else {
 	if (eim.getProperty("leader").equals(cm.getName())) {
 	    if (cm.getMap().getReactorByName("watergate").getState() > 0){
-		cm.sendOk("You may proceed.");
+		cm.sendOk("你可以继续。");
 	    } else {
 		var currentCombo = eim.getProperty("stage3combo");
 		if (currentCombo == null || currentCombo.equals("reset")) {
@@ -38,8 +38,8 @@ function start() {
 			    }
 			} else {
 			    if (attempt < 7) {
-				//cm.playerMessage("Combo : " + combo);
-				//cm.playerMessage("Guess : " + guess);
+				cm.playerMessage("Combo : " + combo);
+				cm.playerMessage("Guess : " + guess);
 				var parsedCombo = parsePattern(combo);
 				var parsedGuess = parsePattern(guess);
 				var results = compare(parsedCombo, parsedGuess);
@@ -47,23 +47,23 @@ function start() {
 				//cm.playerMessage("Results - Correct: " + results[0] + " | Incorrect: " + results[1] + " | Unknown: " + results[2]);
 				if (results[0] != 0) {
 				    if (results[0] == 1) {
-					string += "1 vassal is pleased with their offering.\r\n";
+					string += "1.附庸对他们的奉献感到满意。\r\n";
 				    } else {
-					string += results[0] + " vassals are pleased with their offerings.\r\n";
+					string += results[0] + " 诸侯对他们的供品很满意。\r\n";
 				    }
 				}
 				if (results[1] != 0) {
 				    if (results[1] == 1) {
-					string += "1 vassal has recieved an incorrect offering.\r\n";
+					string += "1附庸收到了错误的供品。\r\n";
 				    } else {
-					string += results[1] + " vassals have recieved incorrect offerings.\r\n";
+					string += results[1] + "附庸们收到了不正确的供品。\r\n";
 				    }
 				}
 				if (results[2] != 0) {
 				    if (results[2] == 1) {
-					string += "1 vassal has recieved an unknown offering.\r\n";
+					string += "1附庸收到了一份未知的礼物。\r\n";
 				    } else {
-					string += results[2] + " vassals have recieved unknown offerings.\r\n";
+					string += results[2] + "附庸们收到了未知的供品。\r\n";
 				    }
 				}
 				string += "This is your ";
@@ -92,7 +92,7 @@ function start() {
 			    } else {
 				//reset the combo and mass spawn monsters
 				eim.setProperty("stage3combo","reset");
-				cm.sendOk("You have failed the test. Please compose yourselves and try again later.");
+				cm.sendOk("你考试不及格。请冷静下来，稍后再试。");
 
 				for (var i = 0; i < 5; i++) {
 				    //keep getting new monsters, lest we spawn the same monster five times o.o!
@@ -102,7 +102,7 @@ function start() {
 			    }
 			}
 		    } else {
-			cm.sendOk("Please make sure your attempt is properly set in front of the vassals and talk to me again.");
+			cm.sendOk("请确保你的尝试被正确地安排在诸侯面前，然后再和我谈谈。");
 		    }
 		}
 	    }
@@ -132,7 +132,7 @@ function getGroundItems() {
     var itemInArea = new Array(-1, -1, -1, -1);
         
     if (items.size() != 4) {
-	cm.playerMessage("There are too many items in the map. Please remove some");
+	cm.playerMessage("地图上的项目太多了。请去掉一些");
 	return null;
     }
         
@@ -141,7 +141,7 @@ function getGroundItems() {
 	var item = iter.next();
 	var id = item.getItem().getItemId();
 	if (id < 4001027 || id > 4001030) {
-	    cm.playerMessage("Some items in the map are not part of the 4 items needed");
+	    cm.playerMessage("地图中的某些项目不是所需的4个项目的一部分");
 	    return null;
 	} else {
 	    //check item location

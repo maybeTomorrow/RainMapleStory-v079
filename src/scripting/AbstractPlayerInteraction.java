@@ -1091,6 +1091,7 @@ public abstract class AbstractPlayerInteraction {
 
     public final void openNpc(final MapleClient cg, final int id, final int mode, final String script) {
         cg.removeClickedNPC();
+        NPCScriptManager.getInstance().dispose(cg);
         NPCScriptManager.getInstance().start(cg, id, mode, script);
     }
 

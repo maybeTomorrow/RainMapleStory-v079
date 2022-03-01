@@ -52,7 +52,9 @@ function action(mode, type, selection) {
         } else if (selection == 1) {
 		cm.openNpc(9010009, 1);
         } else if (selection == 2) {
+
 		cm.openNpc(9010009, 2);
+
         } else if (selection == 3) {
 		cm.openNpc(9010009, 5);
         } else if (selection == 4) {

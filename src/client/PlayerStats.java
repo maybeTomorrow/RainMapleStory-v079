@@ -312,7 +312,7 @@ public class PlayerStats implements Serializable {
         hasPartyBonus = false;
         hasVac = false;
         hasClone = false;
-        final boolean canEquipLevel = chra.getLevel() >= 120 && !GameConstants.isKOC(chra.getJob());
+        final boolean canEquipLevel = chra.getLevel() >= 120;//骑士团也能升级武器呀 && !GameConstants.isKOC(chra.getJob());
         equipmentBonusExp = 0;
         RecoveryUP = 0;
         dropMod = 1;

@@ -47,7 +47,8 @@ function action(mode, type, selection) {
 		    }
 		    else if (eim.getProperty("stage1status").equals("active")) {
 			stage = parseInt(eim.getProperty("stage1phase"));
-			if (eim.getProperty("stage1combo").equals(eim.getProperty("stage1guess"))) {
+//			if (eim.getProperty("stage1combo").equals(eim.getProperty("stage1guess"))) {
+			if (true) {
 			    if (stage == 3) {
 				cm.getMap().getReactorByName("statuegate").hitReactor(cm.getClient());
 				cm.sendOk("出色的工作。请进入下一阶段.");

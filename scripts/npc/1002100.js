@@ -22,7 +22,7 @@
 // Jane the Alchemist
 var status = -1;
 var amount = -1;
-var items = [[2000002,310],[2022003,1060],[2022000,1600],[2001000,3120]];
+var items = [[2000012,5000],[2022003,1060],[2022000,1600],[2001000,3120]];
 var item;
 
 function start() {
@@ -45,7 +45,6 @@ function action(mode, type, selection) {
         cm.dispose();
         return;
     }
-	/*
     if (status == 0){
         var selStr = "你想购买那些药水??#b";
         for (var i = 0; i < items.length; i++)
@@ -53,7 +52,7 @@ function action(mode, type, selection) {
         cm.sendSimple(selStr);
     } else if (status == 1) {
         item = items[selection];
-        var recHpMp = ["300 HP.","1000 HP.","800 MP","1000 HP and MP."];
+        var recHpMp = ["50% HP/MP.","1000 HP.","800 MP","1000 HP and MP."];
         cm.sendGetNumber("你想买 #b#t" + item[0] + "##k? #t" + item[0] + "# 允许您恢复 " + recHpMp[selection] + " 你想买多少个??", 1, 1, 100);
     } else if (status == 2) {
         cm.sendYesNo("你购买这些 #r" + selection + "#k #b#t" + item[0] + "#(s)#k? #t" + item[0] + "# 费用为 " + item[1] + " 金币 为一体，所以总出来是 #r" + (item[1] * selection) + "#k 金币.");
@@ -70,7 +69,5 @@ function action(mode, type, selection) {
                 cm.sendNext("确认你的金币是否足够,和检查你的消耗拦是否足够..");
         }
         cm.dispose();
-    } 
-	*/
-	cm.dispose();
+    }
 }

@@ -43,9 +43,16 @@ function action(mode, type, selection) {
 
         }else if (selection==5){
 
-        var rs=cm.equipStat(-11);
+//        var rs=cm.equipStat(-11);
+        var rs=cm.equipStat(-5);
 
-         cm.sendOk("参数是"+ rs)
+        var txt="当前情况\r\n真实武器等级："+rs.true_level+"\r\n"
+        txt+="总经验："+rs.item_exp+"\r\n"
+        txt+="当前等级经验："+rs.equip_exp_for+"\r\n"
+        txt+="升级所需总经验："+rs.lvl_up_need+"\r\n"
+        txt+="升级所需经验："+(rs.lvl_up_need-rs.equip_exp_for)+"\r\n"
+
+         cm.sendOk(txt)
          cm.dispose();
         }else{
              cm.sendOk("参数是"+mode+","+type+","+selection)

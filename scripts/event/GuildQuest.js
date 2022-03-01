@@ -6,6 +6,8 @@ importPackage(java.lang);
 
 var mapz = Array(0, 100, 200, 300, 301, 400, 401, 410, 420, 430, 431, 440, 500, 501, 502, 600, 610, 611, 620, 630, 631, 640, 641, 700, 800, 900, 1000, 1100, 1101);
 
+var needsize=1
+
 function init() {
     em.setProperty("started", "false");
     em.setProperty("state", "0");
@@ -55,7 +57,7 @@ function scheduledTimeout(eim) {
     if (em.getProperty("state").equals("0")) {
 	em.setProperty("state", "1");
 
-	if (!disposePlayerBelow(eim, 5, 990001100, "你需要六个人以上才成开始家族任务。")) {
+	if (!disposePlayerBelow(eim, needsize, 990001100, "你需要六(2)个人以上才成开始家族任务。")) {
 	    var iter = players(eim).iterator();
 	    while (iter.hasNext()) {
 		iter.next().dropMessage(5, "家族任务已经开始了。");
@@ -142,7 +144,7 @@ function playerDisconnected(eim, player) {
 	disposePlayerBelow(eim, 100, 990001100, "由于领导者断线，所以家族任务整个将关闭。");
     } else {
 	if (!em.getProperty("state").equals("0")) {
-		disposePlayerBelow(eim, 5, 990001100, "由于没有足够的玩家，所以家族任务将整个关闭。");
+		disposePlayerBelow(eim, needsize, 990001100, "由于没有足够的玩家，所以家族任务将整个关闭。");
     }
 	}
 }
@@ -156,7 +158,7 @@ function disbandParty(eim) { //ignore for GQ
 function playerExit(eim, player) {
 	eim.unregisterPlayer(player);
 	if (!em.getProperty("state").equals("0")) {
-	disposePlayerBelow(eim, 5, 990001100, "由於沒有足夠的玩家，所以工會任務將整個關閉。");
+	disposePlayerBelow(eim, needsize, 990001100, "由於沒有足夠的玩家，所以工會任務將整個關閉。");
 	}
 }
 
