@@ -43,8 +43,8 @@ function action(mode, type, selection) {
 
         }else if (selection==5){
 
-//        var rs=cm.equipStat(-11);
-        var rs=cm.equipStat(-5);
+        var rs=cm.equipStat(-11);
+//        var rs=cm.equipStat(-5);
 
         var txt="当前情况\r\n真实武器等级："+rs.true_level+"\r\n"
         txt+="总经验："+rs.item_exp+"\r\n"

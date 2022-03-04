@@ -85,7 +85,7 @@ public class SpawnPoint extends Spawns {
             return false;
         }
 
-        if (((mobTime != 0 || immobile) && spawnedMonsters.get() > 0) || spawnedMonsters.get() > 2) {
+        if (((mobTime != 0 || immobile) && spawnedMonsters.get() > 0) || spawnedMonsters.get() > 1) {
             return false;
         }
         long time = System.currentTimeMillis();

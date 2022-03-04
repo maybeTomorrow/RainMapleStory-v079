@@ -6,12 +6,12 @@
 var status = 0;
 
 var needItem=[
-4000035,
-4000003,
 4000270,
 4000269,
+4000268,
+4000035,
+4000003,
 4000036,
-4000172,
 4000059,
 4000107,
 4000234,
@@ -25,12 +25,12 @@ var needItem=[
  ];
 
 var gotItem=[
-4010000,
-4010001,
+4010005,
 4010002,
 4010003,
+4010000,
+4010001,
 4010004,
-4010005,
 4010006,
 4020000,
 4020001,
@@ -75,7 +75,6 @@ function action(mode, type, selection) {
              finalSelect=selection
              cm.sendGetNumber(txt,1,1,999999999);
         } else if (status == 2){
-
              if(cm.haveItem(needItem[finalSelect],selection)){
                  cm.gainItem(needItem[finalSelect], -selection);
                  cm.gainItem(gotItem[finalSelect], selection);

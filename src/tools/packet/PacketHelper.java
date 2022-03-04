@@ -410,7 +410,8 @@ public class PacketHelper {
                 mplew.write(0);
 //                mplew.write(Math.max(equip.getBaseLevel(), equip.getEquipLevel())); // Item level
                 mplew.write(Math.max(equip.getBaseLevel(), equip.getEquipLevel())); // Item level
-                mplew.writeInt(equip.getExpPercentage()*30000000/100); // Item Exp... 10000000 = 100%
+                int a=equip.getExpPercentage()*268000;
+                mplew.writeInt(a); // Item Exp... 10000000 = 100%
                 mplew.writeInt(equip.getViciousHammer());
                 if (!hasUniqueId) {
                     mplew.writeLong(item.getUniqueId()); //some tracking ID

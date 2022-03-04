@@ -13,7 +13,7 @@ function action(mode, type, selection) {
     } 
     if (status == 0) { 
     if (cm.getPlayer().getJob() == 0) { 
-        cm.sendNext("Welcome, Beginning Explorer! In Maple Story,you can\r\nchoose a #rjob#k when you reach #rLv 10#k (Lv 8 for Magicians).\r\n\r\nIn other words, you'll be choosing your own future path!\r\nWhen you get a job,you get to use various skills and magic nwhice will make your experience in Maple Story more enjoyable.So,work hard to carve your own destiny"); 
+        cm.sendNext("欢迎你，探险家！在《枫树故事》中，当你到达#rLv 10#k（魔术师8级）时，你可以选择#rjob#k。\r\n\r\n换句话说，你将选择自己的未来道路！\r\n当你找到一份工作时，你可以使用各种技能和魔法，这将使你在Maple Story中的体验更加愉快。所以，努力开创自己的命运");
     } else { 
         cm.sendOk("It looks like you've already made a job advancement!\r\nTransportation can only be used by beginners"); 
         cm.dispose(); 
@@ -23,7 +23,7 @@ function action(mode, type, selection) {
     } else if (status == 2) { 
         cm.sendNextPrev("Weapons used include the #bClaws#k and #bDaggers#k\r\n\r\nRequired Level: #rOver Lv 10#k\r\nLocation: #rFusion Jazz Bar#k in #bKerning City#k\r\nJob Instructor: #rDark Lord#k"); 
     } else if (status == 3) { 
-        cm.sendSimple("Would you like to become a #rThief?#k\r\n#b#L0#Yes#l\r\n#L1#No#l#k"); 
+        cm.sendSimple("你想成为一个 #rThief?#k\r\n#b#L0#Yes#l\r\n#L1#No#l#k");
     } else if (status == 4) { 
       if (selection == 0) { 
         cm.sendSimple("In order to make the job advancement, you must visit #rDark Lord#k at the #rFusion Jazz Bar#k in #bKerning City#k.Would you like to be trasported there now?-The transportation service cannot be used once you make the job advancement-\r\n\r\n#b#L0#Yes#l\r\n#L1#No#l#k"); 

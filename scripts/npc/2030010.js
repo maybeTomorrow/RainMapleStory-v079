@@ -13,7 +13,7 @@ function action(mode, type, selection) {
         } else {
             cm.warp(211042301);
         }
-		cm.getPlayer().setbosslog(0);//BOSS重返
+		cm.getPlayer().setBossLog(0);//BOSS重返
     }
     cm.dispose();
 }

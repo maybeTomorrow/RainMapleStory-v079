@@ -12,13 +12,13 @@ function start(mode, type, selection) {
 	status--;
     }
     if (status == 0) {
-	qm.askAcceptDecline("How's the training going? Wow, looking at you, I can tell your levels have shot through the roof. That's amazing... well, anyway, I see that you'r busy, but you'll have to return to the island for a bit.");
+	qm.askAcceptDecline("训练进行得怎么样？哇，看着你，我可以告诉你你的水平已经突破了屋顶。太棒了。。。不管怎样，我知道你很忙，但你得回岛上待一会儿。");
     } else if (status == 1) {
 	qm.forceStartQuest(21200, "3"); //??
 	qm.forceCompleteQuest();
 	qm.forceStartQuest(21202); //skip just in case
 	qm.forceStartQuest(21203, "0");
-	qm.sendOk("Your #bGiant Pole Arm#k that's being kept in #bRien#k is acting strange all of a sudden. According to the book, the pole arm reacts like this when it's calling for its master. #bMaybe it's calling for you?#k? Please come back to the island and find out.");
+	qm.sendOk("你的#bGiant Pole Arm#k被放在#bRien#k里，突然间表现得很奇怪。根据这本书，杆臂在召唤主人时的反应是这样的#B它可能在找你#K请回到岛上看看。");
 	qm.dispose();
     }
 }
@@ -28,7 +28,7 @@ function end(mode, type, selection) {
 	status++;
     } else {
 	if (status == 11) {
-	    qm.sendNext("Hey, at least you tell me you tried!");
+	    qm.sendNext("嘿，至少你告诉我你试过了！");
 	    qm.dispose();
 	    return;
 	} else if (status == 13) {

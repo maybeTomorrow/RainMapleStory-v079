@@ -55,7 +55,7 @@ function action(mode, type, selection) {
                 cm.sendNext("你们沒有我需要的物品吗？这可不是慈善事业！");
             } else {
                 if (cm.haveItem(4001109)) {
-                    cm.sendSimple("好。。。我看你们有充分的资格，你想挑战那一阶段？ #b\r\n#L0#废矿调查 (第一阶段)#l\r\n#L1#扎昆迷宫调查 (第二阶段)#l\r\n#L2#治炼邀请 (第三阶段)#l\r\n#L4#跳过任务 (需要花钱)#l");//#L4#跳过任务 (需要花钱)
+                    cm.sendSimple("好。。。我看你们有充分的资格，你想挑战那一阶段？ #b\r\n#L0#废矿调查 (第一阶段)#l\r\n#L1#扎昆迷宫调查 (第二阶段)#l\r\n#L2#治炼邀请 (第三阶段)#l\r\n#L4#跳过任务 (需要花钱)#l #l\r\n#L5#白嫖呼吸#l");//#L4#跳过任务 (需要花钱)
                 } else {
                     cm.sendSimple("好。。。我看你们有充分的资格，你想挑战那一阶段？ #b\r\n#L0#废矿调查 (第一阶段)#l\r\n#L1#扎昆迷宫调查 (第二阶段)#l\r\n#L2#治炼邀请 (第三阶段)#l\r\n#L4#跳过任务 (需要花钱)#l");
                 }//#L4#跳过任务 (需要花钱)
@@ -171,6 +171,9 @@ function action(mode, type, selection) {
                 cm.sendYesNo("你想收买我？哈哈，可以啊！但你必须给我 #e500,000,000#n 金币，我就可以让你直接跳过任务。");
                 status = 3;
             }
+        }else if (selection == 5) {
+            cm.gainItem(4031062,1)
+            cm.dispose()
         }
     } else if (status == 2) {
         if (stage == 1) {

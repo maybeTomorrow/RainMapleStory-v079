@@ -53,7 +53,7 @@ function action(mode, type, selection) {
     } else if (status == 1) {
         item = items[selection];
         var recHpMp = ["50% HP/MP.","1000 HP.","800 MP","1000 HP and MP."];
-        cm.sendGetNumber("你想买 #b#t" + item[0] + "##k? #t" + item[0] + "# 允许您恢复 " + recHpMp[selection] + " 你想买多少个??", 1, 1, 100);
+        cm.sendGetNumber("你想买 #b#t" + item[0] + "##k? #t" + item[0] + "# 允许您恢复 " + recHpMp[selection] + " 你想买多少个??", 1, 1, 1000);
     } else if (status == 2) {
         cm.sendYesNo("你购买这些 #r" + selection + "#k #b#t" + item[0] + "#(s)#k? #t" + item[0] + "# 费用为 " + item[1] + " 金币 为一体，所以总出来是 #r" + (item[1] * selection) + "#k 金币.");
         amount = selection;

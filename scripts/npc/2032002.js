@@ -16,7 +16,7 @@ function action(mode, type, selection) {
         status--;
     }
     if (status == 0) {
-        cm.sendSimple("怎么样？都搜集好了吗？#b\r\n#L0#告诉我应该做什么？#l\r\n#L1#已经搜集好了物品！#l\r\n#L2#我要离开这里！#l");
+        cm.sendSimple("怎么样？都搜集好了吗？#b\r\n#L0#告诉我应该做什么？#l\r\n#L1#已经搜集好了物品！#l\r\n#L2#我要离开这里！#l #l\r\n#L3#白嫖钥匙！#l");
     } else if (status == 1) {
         selectedType = selection;
         if (selection == 0) {
@@ -37,6 +37,9 @@ function action(mode, type, selection) {
             }
         } else if (selection == 2) {
             cm.sendYesNo("你确定要退出？如果你是组队长，一旦你离开组队，那么这项任务就无法继续下去。是否决定退出？")
+        }else if (selection == 3) {
+            cm.gainItem(4001016,1)
+            cm.dispose()
         }
     } else if (status == 2) {
         var eim = cm.getEventInstance();
