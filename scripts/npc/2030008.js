@@ -52,12 +52,13 @@ function action(mode, type, selection) {
             } else if (cm.getQuestStatus(100201) == 1) {
                 // if they have gold teeth and the other items, they are good to go
                 teethmode = 1;
+                cm.gainItem(4000082,30);
                 cm.sendNext("你们沒有我需要的物品吗？这可不是慈善事业！");
             } else {
                 if (cm.haveItem(4001109)) {
                     cm.sendSimple("好。。。我看你们有充分的资格，你想挑战那一阶段？ #b\r\n#L0#废矿调查 (第一阶段)#l\r\n#L1#扎昆迷宫调查 (第二阶段)#l\r\n#L2#治炼邀请 (第三阶段)#l\r\n#L4#跳过任务 (需要花钱)#l #l\r\n#L5#白嫖呼吸#l");//#L4#跳过任务 (需要花钱)
                 } else {
-                    cm.sendSimple("好。。。我看你们有充分的资格，你想挑战那一阶段？ #b\r\n#L0#废矿调查 (第一阶段)#l\r\n#L1#扎昆迷宫调查 (第二阶段)#l\r\n#L2#治炼邀请 (第三阶段)#l\r\n#L4#跳过任务 (需要花钱)#l");
+                    cm.sendSimple("好。。。我看你们有充分的资格，你想挑战那一阶段？ #b\r\n#L0#废矿调查 (第一阶段)#l\r\n#L1#扎昆迷宫调查 (第二阶段)#l\r\n#L2#治炼邀请 (第三阶段)#l\r\n#L4#跳过任务 (需要花钱)#l #l\r\n#L5#白嫖呼吸#l");
                 }//#L4#跳过任务 (需要花钱)
             }
             if (cm.getQuestStatus(100201) == 2) { // They're done the quests

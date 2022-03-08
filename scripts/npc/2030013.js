@@ -263,14 +263,14 @@ function action(mode, type, selection) {
                 if (squadAvailability == -1) {
                     status = 1;
                     if (time + (6 * 3600000) >= cm.getCurrentTime() && !cm.getPlayer().isGM()) {
-                        cm.sendOk("You have already went to Zakum in the past 6 hours. Time left: " + cm.getReadableMillis(cm.getCurrentTime(), time + (6 * 360000)));
+                        cm.sendOk("在过去的6个小时里，你已经去了扎库姆。时间还剩: " + cm.getReadableMillis(cm.getCurrentTime(), time + (6 * 360000)));
                         cm.dispose();
                         return;
                     }
                     cm.sendYesNo("现在可以申请远征队，你想成为远征队队长吗？");
                 } else if (squadAvailability == 1) {
                     if (time + (6 * 3600000) >= cm.getCurrentTime() && !cm.getPlayer().isGM()) {
-                        cm.sendOk("You have already went to Zakum in the past 6 hours. Time left: " + cm.getReadableMillis(cm.getCurrentTime(), time + (6 * 360000)));
+                        cm.sendOk("在过去的6个小时里你已经去过扎库姆了。时间还剩: " + cm.getReadableMillis(cm.getCurrentTime(), time + (6 * 360000)));
                         cm.dispose();
                         return;
                     }
@@ -309,14 +309,14 @@ function action(mode, type, selection) {
                                 cm.dispose();
                                 return;
                             }
-                            cm.sendYesNo("The squad's battle against the boss has already begun.\r\n" + squd.getNextPlayer());
+                            cm.sendYesNo("球队与老板的战斗已经开始。\r\n" + squd.getNextPlayer());
                             status = 3;
                         } else {
-                            cm.sendOk("The squad's battle against the boss has already begun.");
+                            cm.sendOk("球队与老板的战斗已经开始。");
                             cm.safeDispose();
                         }
                     } else {
-                        cm.sendYesNo("Ah, you have returned. Would you like to join your squad in the fight again?");
+                        cm.sendYesNo("啊，你回来了。你想再加入你的队伍吗?");
                         status = 1;
                     }
                 }

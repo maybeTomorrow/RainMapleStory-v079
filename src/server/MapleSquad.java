@@ -24,7 +24,7 @@ public class MapleSquad {
     public static enum MapleSquadType {
 
         bossbalrog(2),
-        zak(2),
+        zak(1),
         chaoszak(3),
         horntail(2),
         chaosht(3),
