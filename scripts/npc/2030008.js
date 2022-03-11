@@ -52,7 +52,6 @@ function action(mode, type, selection) {
             } else if (cm.getQuestStatus(100201) == 1) {
                 // if they have gold teeth and the other items, they are good to go
                 teethmode = 1;
-                cm.gainItem(4000082,30);
                 cm.sendNext("你们沒有我需要的物品吗？这可不是慈善事业！");
             } else {
                 if (cm.haveItem(4001109)) {
@@ -73,11 +72,11 @@ function action(mode, type, selection) {
         // if they're working on this quest, he checks for items.
         if (teethmode == 1) {
             // check for items
-            if (cm.haveItem(4000082, 30)) { // take away items, give eyes of fire, complete quest
+            if (cm.haveItem(4000082, 1)) { // take away items, give eyes of fire, complete quest
                 if (cm.canHold(4001017)) {
                     cm.removeAll(4031061);
                     cm.removeAll(4031062);
-                    cm.gainItem(4000082, -30);
+                    cm.gainItem(4000082, -1);
                     cm.gainItem(4001017, 5);
                     cm.sendNext("冶炼好了。 看到的门了吗？它就是通往扎昆祭台的门。 不过你需要 #b#t4001017##k 才能进入里面。让我看看有多少人能进入到那个恐怖的地方？");
                     cm.completeQuest(100201);
@@ -182,11 +181,11 @@ function action(mode, type, selection) {
             cm.dispose();
         } else if (stage == 2) {
             if (teethmode == 2) {
-                if (cm.haveItem(4031061, 1) && cm.haveItem(4031062, 1) && cm.haveItem(4000082, 30)) { // take away items, give eyes of fire, complete quest
+                if (cm.haveItem(4031061, 1) && cm.haveItem(4031062, 1) && cm.haveItem(4000082, 1)) { // take away items, give eyes of fire, complete quest
                     if (cm.canHold(4001017)) {
                         cm.gainItem(4031061, -1);
                         cm.gainItem(4031062, -1);
-                        cm.gainItem(4000082, -30);
+                        cm.gainItem(4000082, -1);
                         cm.gainItem(4001017, 5);
                         cm.sendNext("冶炼好了。 看到的门了吗？它就是通往扎昆祭台的门。 不过你需要 #b#t4001017##k 才能进入里面。让我看看有多少人能进入到那个恐怖的地方？");
                         cm.completeQuest(100201);

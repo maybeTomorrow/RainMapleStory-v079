@@ -22,7 +22,8 @@ function action(mode, type, selection) {
 		else
 			status--;
 		if (status == 0) {
-			if (cm.getPlayer().getBuffedValue(MapleBuffStat.MORPH) >= 0) {
+//			if (cm.getPlayer().getBuffedValue(MapleBuffStat.MORPH) >= 0) {
+			if (true) {
 				cm.sendYesNo("你想进去挑战黑暗龙王吗？这个BOSS可是非常强大的啊。。。\r\n小广告：Vr001 封测版服务端出售中..有意者请联系：1449274741");
 			}
 			else {
