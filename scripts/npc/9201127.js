@@ -39,7 +39,7 @@ function action(mode, type, selection) {
         cm.dispose(); 
     } 
   } else if (status == 6) { 
-        cm.warp(120000101, 4); 
+        cm.warp(120000101, 0);
 	cm.dispose();
   } 
 }  
