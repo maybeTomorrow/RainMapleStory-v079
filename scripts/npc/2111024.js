@@ -23,7 +23,7 @@ function action(mode, type, selection) {
 	cm.forceCompleteQuest(3360);
 	cm.playerMessage("The security device has been disengaged.");
     } else {
-	cm.sendOk("Invalid password.");
+	cm.sendOk("Invalid password."+cm.getQuestRecord(3360).getCustomData()+" ,your got "+pw);
     }
     cm.dispose();
 }

@@ -2872,6 +2872,7 @@ public class GameConstants {
             case 220060301://  糾結的時間
             case 220070201://  毀壞的時間
             case 220070301://  禁忌的時間  
+            case 220060400://  怪异的回廊
             case 741020101:
             case 741020102:
                 return true;

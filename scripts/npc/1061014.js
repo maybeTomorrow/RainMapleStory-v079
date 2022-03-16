@@ -81,7 +81,7 @@ function action(mode, type, selection) {
 	case 1:
 	    if (mode == 1) {
 		    var lvl = cm.getPlayerStat("LVL");
-		    if (lvl >= 50 && lvl <= 120) {
+		    if (lvl >= 50 && lvl <= 200) {
 			if (cm.registerSquad("BossBalrog", 5, " 已经成为了远征队队长。如果你想加入远征队，请重新打开对话申请加入远征队。")) {
 				cm.sendOk("你已经成为了远征队队长。接下来的5分钟，请等待队员们的申请。");
 			} else {

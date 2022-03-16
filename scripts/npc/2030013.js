@@ -262,14 +262,14 @@ function action(mode, type, selection) {
                 var squadAvailability = cm.getSquadAvailability("ZAK");
                 if (squadAvailability == -1) {
                     status = 1;
-                    if (time + (6 * 3600000) >= cm.getCurrentTime() && !cm.getPlayer().isGM()) {
+                    if (time + (/*6 * 3600000*/1000) >= cm.getCurrentTime() && !cm.getPlayer().isGM()) {
                         cm.sendOk("在过去的6个小时里，你已经去了扎库姆。时间还剩: " + cm.getReadableMillis(cm.getCurrentTime(), time + (6 * 360000)));
                         cm.dispose();
                         return;
                     }
                     cm.sendYesNo("现在可以申请远征队，你想成为远征队队长吗？");
                 } else if (squadAvailability == 1) {
-                    if (time + (6 * 3600000) >= cm.getCurrentTime() && !cm.getPlayer().isGM()) {
+                    if (time + (/*6 * 3600000*/1000) >= cm.getCurrentTime() && !cm.getPlayer().isGM()) {
                         cm.sendOk("在过去的6个小时里你已经去过扎库姆了。时间还剩: " + cm.getReadableMillis(cm.getCurrentTime(), time + (6 * 360000)));
                         cm.dispose();
                         return;

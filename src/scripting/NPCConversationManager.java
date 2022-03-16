@@ -2785,6 +2785,7 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
     public Map<String,Object> equipStat(short dst) {
         Equip item = (Equip)getPlayer().getInventory(MapleInventoryType.EQUIPPED).getItem(dst);
         Map<String,Object> a=new HashMap<String,Object>();
+        a.put("item_id",item.getItemId());
         a.put("item_exp",item.getItemEXP());
         a.put("equip_level",item.getEquipLevel());
         a.put("true_level",item.getTrueLevel());

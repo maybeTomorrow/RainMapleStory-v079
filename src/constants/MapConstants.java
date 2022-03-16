@@ -181,6 +181,7 @@ public class MapConstants {
             case 220070301://  禁忌的時間  
             case 104010001://  猪猪海岸
             case 220070400://  怪异时间
+            case 220060400://  怪异回廊
                 return 4;
             case 910200000://  	未公开的遗迹
             case 910200001:
