@@ -1,10 +1,10 @@
 var status;
 var check;
-var wea=[-11,-106,-1,-8,-7,-9,-5]
+var wea=[-11,-106,-1,-8,-7,-9,-5,-17]
 
 
-var fastmap=[280030000,220080001]
-var fastmaptitle=["扎昆祭坛","帕普帕斯boss"]
+var fastmap=[280030000,220080001,910500200]
+var fastmaptitle=["扎昆祭坛","帕普帕斯boss","遗忘的圣殿"]
 
 function start() {
     status = -1;
@@ -49,7 +49,7 @@ function action(mode, type, selection) {
         }else if (selection==5){
           var txt=""
 
-         var wz=["武器","盾牌","帽子","手套","鞋子","披风","套服"]
+         var wz=["武器","盾牌","帽子","手套","鞋子","披风","套服","坠子"]
           for(var i=0;i<wea.length;i++){
            txt+="\r\n#L"+i+"# 位置"+wz[i]+" \r\n";
           }
