@@ -13,6 +13,11 @@ function action(mode, type, selection) {
              cm.warpParty(240050300);
 			 cm.dispose();
 	} else {
+	          cm.gainItem(4001087, 1);
+                          cm.gainItem(4001088, 1);
+                          cm.gainItem(4001089, 1);
+                          cm.gainItem(4001090, 1);
+                          cm.gainItem(4001091, 1);
              cm.sendOk("请叫你的队长带着5种迷宫室钥匙来找我");
 			 cm.dispose();
               }

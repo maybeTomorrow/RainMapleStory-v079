@@ -21,7 +21,7 @@ function action(mode, type, selection) {
     }
 
 //    if (cm.getMapId() == 240050400) {
-    if (status == 0) {
+    if (status == 0&&cm.getMapId() == 240050400) {
 	if (cm.getParty() == null) { // No Party
 	    cm.sendOk("很抱歉，你好像没有组队。。。");
 	} else if (!cm.isLeader()) { // Not Party Leader

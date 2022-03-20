@@ -579,6 +579,12 @@ public class MapleItemInformationProvider {
         } catch (NullPointerException e) {
 
         }
+        if (nEquip.getWdef()>1800){
+            nEquip.setWdef((short)1800);
+        }
+        if (nEquip.getMdef()>2000){
+            nEquip.setMdef((short)2000);
+        }
         return nEquip;
     }
 
