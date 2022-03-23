@@ -21,7 +21,7 @@ function action(mode, type, selection) {
                     cm.dispose();
                     return ; 
                     }
-                     if ( cm.getBossLog('PB') >= 5) { 
+                     if ( cm.getBossLog('PB') >= 115) {
                     cm.sendOk("#e你今天已经挑战五次了，请明天再来."); 
                     cm.dispose();
                     return ; 
@@ -32,14 +32,14 @@ function action(mode, type, selection) {
                     }else { 
             var party = cm.getParty().getMembers(); 
             var next = true; 
-                if (party.size() != 1){
+                if (party.size() <1){
                     next = false; 
                     cm.sendOk("#r本次任务只能6人组队参加哦."); 
                     cm.dispose();
                     return ; 
                     } 
                 if (next) { 
-            var em = cm.getEventManager("pbquest"); 
+            var em = cm.getEventManager("PinkBeanBattle");
                 if (em == null) { 
                     cm.sendOk("error！"); 
                 } else {  

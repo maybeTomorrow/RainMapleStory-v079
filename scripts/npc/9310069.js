@@ -86,7 +86,7 @@ function action(mode, type, selection) {
                          } else{
                          changeItem=needItem[finalSelect]
                       }
-                      var txt="你想用 #i"+changeItem+"#   #t"+changeItem+"# 兑换 #i"+gotItem[selection]+"#   #t"+gotItem[selection]+" 是吗？输入你要兑换的数量"
+                      var txt="你想用 #i"+changeItem+"#   #t"+changeItem+"# 兑换 #i"+gotItem[finalSelect]+"#   #t"+gotItem[finalSelect]+" 是吗？输入你要兑换的数量"
                       cm.sendGetNumber(txt,1,1,999999999);
         }else if (status == 3){
              if(cm.haveItem(changeItem,selection)){
